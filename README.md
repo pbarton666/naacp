@@ -1,2 +1,2 @@
 # naacp
-analyticla scripts for naacp project
+analytical scripts for naacp project

@@ -1,0 +1,74 @@
+'''
+build_flat_file.py
+
+Populate data tables based on the root directory and all
+subdirectories.  Database tables are assumed to exist.  With
+new database, build_tables.py should be run first.  Naming 
+conventions are in built_tables.py.
+'''
+from database import login_info
+import psycopg2
+import os
+import csv
+import logging
+import logging.handlers
+import shutil
+
+from build_tables import dir_map, get_column_name, get_table_name, load_file
+
+#some constants for stand-alone mode 
+DB = 'naacp'
+TABLE = 'model'
+FN_DELIMITER = '_'  #info about matrices is stored in the file names themselves.
+###test dir
+PARENT_DIR ='/home/pat/data/RL_analysis/raw_data_unzipped/test'
+OUT_DIR='/home/pat/data/RL_analysis/flat'
+SENTINAL='matrix_value'
+
+logger = logging.getLogger('trans_logger')
+
+def main(pdir= PARENT_DIR, odir = OUT_DIR):
+    "grab each file in each directory and create a flat file"
+    for root, dirs, files in os.walk(pdir):
+        for d in dirs:
+            target_dir=os.path.join(outdir, d)
+            if delete_flat_dir:
+                shutil.rmtree(target)
+            files = os.listdir(os.path.join(root, d))
+            #make a subdir in the output dir
+            for file in files:
+                ofile = make_flat_file(os.path.join(root,d, file), odir)  
+         
+
+def name_to_flat(fn)        :
+    "applies naming convention to flat file"
+    return fn[:-4]+'_flat.csv'
+
+def make_flat_file(file, odir= OUT_DIR):
+    "creates a flat file from an input matrix, write file"
+    fn = os.path.basename(file)
+    col = get_column_name(fn)
+    dn = os.path.dirname(file)    
+    out=[]
+    out.append(col)
+    
+    #read the file (first line is a header)
+    with open(file, 'r') as f:
+        reader = csv.reader(f)
+        header=next(reader)
+        for row_index, row in enumerate(reader, start=1):
+            for col_index, value in enumerate(header[1:], start=1):
+                #note that origin and destination columns already exist in target
+                out.append(row[col_index] )
+                z=1
+                 
+    ofile = os.path.join(odir, name_to_flat(os.path.basename(file)))
+    with open(ofile,'w') as f:
+        for line in out:
+            clean_line=line.strip()
+            f.write('{}\n'.format(clean_line))
+
+    return(ofile)  #the name of the just-created file            
+
+if __name__ =="__main__":
+    main()
