@@ -2397,3 +2397,16 @@
 2015-11-08 13:16:10 - INFO - build_tables.py:116 - dropping table tmp_tmpb_prms_odir_
 2015-11-08 13:16:10 - INFO - build_tables.py:134 - Loading flat file tmp_tmpb_prms_odir_ to the database with INSERTS
 2015-11-08 13:16:10 - INFO - build_tables.py:148 - success.
+2015-11-08 13:50:16 - INFO - build_flat_files.py:31 - creating np array from HWY_OD_TimeCost
+2015-11-08 13:50:22 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 13:50:24 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 13:50:26 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TOLL.csv
+2015-11-08 13:50:27 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_DISTANCE.csv
+2015-11-08 13:50:29 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TIME.csv
+2015-11-08 13:50:31 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TOLL.csv
+2015-11-08 13:50:33 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_DISTANCE.csv
+2015-11-08 13:50:35 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TIME.csv
+2015-11-08 13:50:36 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TOLL.csv
+2015-11-08 13:50:38 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_DISTANCE.csv
+2015-11-08 13:50:40 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TIME.csv
+2015-11-08 13:50:42 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TOLL.csv
