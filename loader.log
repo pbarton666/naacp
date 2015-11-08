@@ -2410,3 +2410,536 @@
 2015-11-08 13:50:38 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_DISTANCE.csv
 2015-11-08 13:50:40 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TIME.csv
 2015-11-08 13:50:42 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TOLL.csv
+2015-11-08 14:16:14 - INFO - build_flat_files.py:31 - creating np array from HWY_OD_TimeCost
+2015-11-08 14:16:16 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 14:16:18 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 14:16:20 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TOLL.csv
+2015-11-08 14:16:22 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_DISTANCE.csv
+2015-11-08 14:16:24 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TIME.csv
+2015-11-08 14:16:25 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TOLL.csv
+2015-11-08 14:16:27 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_DISTANCE.csv
+2015-11-08 14:16:29 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TIME.csv
+2015-11-08 14:16:31 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TOLL.csv
+2015-11-08 14:16:33 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_DISTANCE.csv
+2015-11-08 14:16:35 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TIME.csv
+2015-11-08 14:16:36 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TOLL.csv
+2015-11-08 14:17:59 - INFO - build_flat_files.py:31 - creating np array from HWY_OD_TimeCost
+2015-11-08 14:18:07 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 14:18:13 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 14:18:19 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TOLL.csv
+2015-11-08 14:18:25 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_DISTANCE.csv
+2015-11-08 14:18:31 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TIME.csv
+2015-11-08 14:18:37 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TOLL.csv
+2015-11-08 14:18:43 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_DISTANCE.csv
+2015-11-08 14:18:50 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TIME.csv
+2015-11-08 14:18:56 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TOLL.csv
+2015-11-08 14:25:21 - INFO - build_flat_files.py:31 - creating np array from HWY_OD_TimeCost
+2015-11-08 14:25:29 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 14:25:35 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 14:27:34 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_hwy_od_data.csv
+2015-11-08 14:27:34 - INFO - build_flat_files.py:31 - creating np array from ModeChoice_OD_byPurposeIncomeMode
+2015-11-08 14:27:42 - INFO - build_flat_files.py:55 - working on file: MODE_HBO_Inc1_DA.csv
+2015-11-08 14:27:48 - INFO - build_flat_files.py:55 - working on file: MODE_HBO_Inc1_DBus.csv
+2015-11-08 14:28:03 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_mode_choice_od_data.csv
+2015-11-08 14:28:03 - INFO - build_flat_files.py:31 - creating np array from PersonTrip_OD_byPurposeIncome
+2015-11-08 14:28:11 - INFO - build_flat_files.py:55 - working on file: Trips_HBO_Inc1.csv
+2015-11-08 14:28:17 - INFO - build_flat_files.py:55 - working on file: Trips_HBO_Inc2.csv
+2015-11-08 14:28:33 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_person_trip_od_data.csv
+2015-11-08 14:28:33 - INFO - build_flat_files.py:31 - creating np array from TOD_OD_byPurposeIncomeTODOccupancy
+2015-11-08 14:28:40 - INFO - build_flat_files.py:55 - working on file: TOD_HBO_Inc1_AM_HOV2.csv
+2015-11-08 14:28:46 - INFO - build_flat_files.py:55 - working on file: TOD_HBO_Inc1_AM_HOV3.csv
+2015-11-08 14:29:02 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_tod_od_data.csv
+2015-11-08 14:29:02 - INFO - build_flat_files.py:31 - creating np array from TRANSIT_OD_TimeCost
+2015-11-08 14:29:09 - INFO - build_flat_files.py:55 - working on file: TRANSIT_OP_DBus_AutoDistance.csv
+2015-11-08 14:29:15 - INFO - build_flat_files.py:55 - working on file: TRANSIT_OP_DBus_AutoTime.csv
+2015-11-08 14:29:31 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_transit_od_timecost_data.csv
+2015-11-08 14:39:13 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:39:13 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:39:13 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:39:13 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp845sp2_odir_/tmpxd4wf2_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:39:13 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:39:13 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:39:13 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:39:13 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp845sp2_odir_/tmpxd4wf2_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:40:12 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:40:12 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpzqxowv_odir_/tmpd18gb__tdir__my_sub_dir_1_data.csv
+2015-11-08 14:40:12 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:40:12 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpzqxowv_odir_/tmpd18gb__tdir__my_sub_dir_2_data.csv
+2015-11-08 14:40:12 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:40:12 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpl9jwsd_odir_/tmprqzzey_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:40:12 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:40:12 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpl9jwsd_odir_/tmprqzzey_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:40:12 - INFO - build_tables.py:64 - dropping table tmprqzzey_tdir__my_sub_dir_1
+2015-11-08 14:40:12 - INFO - build_tables.py:68 - dropping table tmprqzzey_tdir__my_sub_dir_1
+2015-11-08 14:40:12 - INFO - build_tables.py:70 - creating new table tmprqzzey_tdir__my_sub_dir_1
+2015-11-08 14:40:12 - INFO - build_tables.py:90 - Loading flat file tmprqzzey_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:40:12 - INFO - build_tables.py:97 - success.
+2015-11-08 14:40:12 - INFO - build_tables.py:64 - dropping table tmprqzzey_tdir__my_sub_dir_2
+2015-11-08 14:40:12 - INFO - build_tables.py:68 - dropping table tmprqzzey_tdir__my_sub_dir_2
+2015-11-08 14:40:12 - INFO - build_tables.py:70 - creating new table tmprqzzey_tdir__my_sub_dir_2
+2015-11-08 14:40:12 - INFO - build_tables.py:90 - Loading flat file tmprqzzey_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:40:12 - INFO - build_tables.py:97 - success.
+2015-11-08 14:40:12 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:40:12 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpz47mwy_odir_/tmp5xc8ry_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:40:12 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:40:12 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:40:12 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpz47mwy_odir_/tmp5xc8ry_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:41:21 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:41:21 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp8bwa64_odir_/tmp_6l2kp_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:41:21 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:41:21 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp8bwa64_odir_/tmp_6l2kp_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:41:21 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:41:21 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp6hw5j3_odir_/tmp9ux22r_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:41:21 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:41:21 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp6hw5j3_odir_/tmp9ux22r_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:41:21 - INFO - build_tables.py:64 - dropping table tmp9ux22r_tdir__my_sub_dir_2
+2015-11-08 14:41:21 - INFO - build_tables.py:68 - dropping table tmp9ux22r_tdir__my_sub_dir_2
+2015-11-08 14:41:21 - INFO - build_tables.py:70 - creating new table tmp9ux22r_tdir__my_sub_dir_2
+2015-11-08 14:41:21 - INFO - build_tables.py:90 - Loading flat file tmp9ux22r_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:41:21 - INFO - build_tables.py:97 - success.
+2015-11-08 14:41:21 - INFO - build_tables.py:64 - dropping table tmp9ux22r_tdir__my_sub_dir_1
+2015-11-08 14:41:21 - INFO - build_tables.py:68 - dropping table tmp9ux22r_tdir__my_sub_dir_1
+2015-11-08 14:41:21 - INFO - build_tables.py:70 - creating new table tmp9ux22r_tdir__my_sub_dir_1
+2015-11-08 14:41:21 - INFO - build_tables.py:90 - Loading flat file tmp9ux22r_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:41:21 - INFO - build_tables.py:97 - success.
+2015-11-08 14:41:21 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:41:21 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp9ztc4b_odir_/tmpgb18mh_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:41:21 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:41:21 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:41:21 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp9ztc4b_odir_/tmpgb18mh_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:46:39 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:46:39 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpf607s7_odir_/tmpspmpov_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:46:39 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:46:39 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpf607s7_odir_/tmpspmpov_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:46:39 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:46:39 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp9my4hh_odir_/tmpg2zpxw_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:46:39 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:46:39 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp9my4hh_odir_/tmpg2zpxw_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:46:39 - INFO - build_tables.py:64 - dropping table tmpg2zpxw_tdir__my_sub_dir_2
+2015-11-08 14:46:39 - INFO - build_tables.py:68 - dropping table tmpg2zpxw_tdir__my_sub_dir_2
+2015-11-08 14:46:39 - INFO - build_tables.py:70 - creating new table tmpg2zpxw_tdir__my_sub_dir_2
+2015-11-08 14:46:39 - INFO - build_tables.py:90 - Loading flat file tmpg2zpxw_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:46:39 - INFO - build_tables.py:97 - success.
+2015-11-08 14:46:39 - INFO - build_tables.py:64 - dropping table tmpg2zpxw_tdir__my_sub_dir_1
+2015-11-08 14:46:39 - INFO - build_tables.py:68 - dropping table tmpg2zpxw_tdir__my_sub_dir_1
+2015-11-08 14:46:39 - INFO - build_tables.py:70 - creating new table tmpg2zpxw_tdir__my_sub_dir_1
+2015-11-08 14:46:39 - INFO - build_tables.py:90 - Loading flat file tmpg2zpxw_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:46:39 - INFO - build_tables.py:97 - success.
+2015-11-08 14:46:39 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:46:39 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpe6kjw2_odir_/tmpv_hwrz_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:46:39 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:46:39 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:46:39 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpe6kjw2_odir_/tmpv_hwrz_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:46:58 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:46:58 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpslddoe_odir_/tmpbkagry_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:46:58 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:46:58 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpslddoe_odir_/tmpbkagry_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:46:58 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:46:58 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpw5isyu_odir_/tmpu_h68w_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:46:58 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:46:58 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpw5isyu_odir_/tmpu_h68w_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:46:58 - INFO - build_tables.py:64 - dropping table tmpu_h68w_tdir__my_sub_dir_1
+2015-11-08 14:46:58 - INFO - build_tables.py:68 - dropping table tmpu_h68w_tdir__my_sub_dir_1
+2015-11-08 14:46:58 - INFO - build_tables.py:70 - creating new table tmpu_h68w_tdir__my_sub_dir_1
+2015-11-08 14:46:58 - INFO - build_tables.py:90 - Loading flat file tmpu_h68w_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:46:58 - INFO - build_tables.py:97 - success.
+2015-11-08 14:46:58 - INFO - build_tables.py:64 - dropping table tmpu_h68w_tdir__my_sub_dir_2
+2015-11-08 14:46:58 - INFO - build_tables.py:68 - dropping table tmpu_h68w_tdir__my_sub_dir_2
+2015-11-08 14:46:58 - INFO - build_tables.py:70 - creating new table tmpu_h68w_tdir__my_sub_dir_2
+2015-11-08 14:46:58 - INFO - build_tables.py:90 - Loading flat file tmpu_h68w_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:46:58 - INFO - build_tables.py:97 - success.
+2015-11-08 14:46:58 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:46:58 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpacn1rv_odir_/tmp83jp63_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:46:58 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:46:58 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:46:58 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpacn1rv_odir_/tmp83jp63_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:47:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:47:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpyg6eku_odir_/tmpx6p_qd_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:47:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:47:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpyg6eku_odir_/tmpx6p_qd_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:47:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:47:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpgztykm_odir_/tmpwv7w_5_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:47:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:47:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpgztykm_odir_/tmpwv7w_5_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:47:27 - INFO - build_tables.py:64 - dropping table tmpwv7w_5_tdir__my_sub_dir_2
+2015-11-08 14:47:27 - INFO - build_tables.py:68 - dropping table tmpwv7w_5_tdir__my_sub_dir_2
+2015-11-08 14:47:27 - INFO - build_tables.py:70 - creating new table tmpwv7w_5_tdir__my_sub_dir_2
+2015-11-08 14:47:27 - INFO - build_tables.py:90 - Loading flat file tmpwv7w_5_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:47:27 - INFO - build_tables.py:97 - success.
+2015-11-08 14:47:27 - INFO - build_tables.py:64 - dropping table tmpwv7w_5_tdir__my_sub_dir_1
+2015-11-08 14:47:27 - INFO - build_tables.py:68 - dropping table tmpwv7w_5_tdir__my_sub_dir_1
+2015-11-08 14:47:27 - INFO - build_tables.py:70 - creating new table tmpwv7w_5_tdir__my_sub_dir_1
+2015-11-08 14:47:27 - INFO - build_tables.py:90 - Loading flat file tmpwv7w_5_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:47:27 - INFO - build_tables.py:97 - success.
+2015-11-08 14:47:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:47:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpetk3be_odir_/tmpkaldrg_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:47:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:47:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:47:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpetk3be_odir_/tmpkaldrg_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:47:40 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:47:40 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:47:40 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:47:40 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpj32zrk_odir_/tmptua524_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:47:40 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:47:40 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:47:40 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:47:40 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpj32zrk_odir_/tmptua524_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:47:40 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:47:40 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:47:40 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:47:40 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp7l0wa4_odir_/tmps5meol_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:47:40 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:47:40 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:47:40 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:47:40 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp7l0wa4_odir_/tmps5meol_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:47:41 - INFO - build_tables.py:64 - dropping table tmps5meol_tdir__my_sub_dir_2
+2015-11-08 14:47:41 - INFO - build_tables.py:68 - dropping table tmps5meol_tdir__my_sub_dir_2
+2015-11-08 14:47:41 - INFO - build_tables.py:70 - creating new table tmps5meol_tdir__my_sub_dir_2
+2015-11-08 14:47:41 - INFO - build_tables.py:90 - Loading flat file tmps5meol_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:47:41 - INFO - build_tables.py:97 - success.
+2015-11-08 14:47:41 - INFO - build_tables.py:64 - dropping table tmps5meol_tdir__my_sub_dir_1
+2015-11-08 14:47:41 - INFO - build_tables.py:68 - dropping table tmps5meol_tdir__my_sub_dir_1
+2015-11-08 14:47:41 - INFO - build_tables.py:70 - creating new table tmps5meol_tdir__my_sub_dir_1
+2015-11-08 14:47:41 - INFO - build_tables.py:90 - Loading flat file tmps5meol_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:47:41 - INFO - build_tables.py:97 - success.
+2015-11-08 14:47:41 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:47:41 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:47:41 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:47:41 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp8wxv69_odir_/tmp3w2gcs_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:47:41 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:47:41 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:47:41 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:47:41 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp8wxv69_odir_/tmp3w2gcs_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:49:32 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:49:32 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpi5ur3u_odir_/tmpqfmd_x_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:49:32 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:49:32 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpi5ur3u_odir_/tmpqfmd_x_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:49:32 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:49:32 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpm1qyxt_odir_/tmprobrbg_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:49:32 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:49:32 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpm1qyxt_odir_/tmprobrbg_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:49:32 - INFO - build_tables.py:64 - dropping table tmprobrbg_tdir__my_sub_dir_1
+2015-11-08 14:49:32 - INFO - build_tables.py:68 - dropping table tmprobrbg_tdir__my_sub_dir_1
+2015-11-08 14:49:32 - INFO - build_tables.py:70 - creating new table tmprobrbg_tdir__my_sub_dir_1
+2015-11-08 14:49:32 - INFO - build_tables.py:90 - Loading flat file tmprobrbg_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:49:32 - INFO - build_tables.py:97 - success.
+2015-11-08 14:49:32 - INFO - build_tables.py:64 - dropping table tmprobrbg_tdir__my_sub_dir_2
+2015-11-08 14:49:32 - INFO - build_tables.py:68 - dropping table tmprobrbg_tdir__my_sub_dir_2
+2015-11-08 14:49:32 - INFO - build_tables.py:70 - creating new table tmprobrbg_tdir__my_sub_dir_2
+2015-11-08 14:49:32 - INFO - build_tables.py:90 - Loading flat file tmprobrbg_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:49:32 - INFO - build_tables.py:97 - success.
+2015-11-08 14:49:32 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:49:32 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpe3o4hq_odir_/tmpy91vjl_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:49:32 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:49:32 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:49:32 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpe3o4hq_odir_/tmpy91vjl_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:50:42 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:50:42 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp9dubjm_odir_/tmp3buuc__tdir__my_sub_dir_1_data.csv
+2015-11-08 14:50:42 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:50:42 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp9dubjm_odir_/tmp3buuc__tdir__my_sub_dir_2_data.csv
+2015-11-08 14:50:42 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:50:42 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpcjnlxt_odir_/tmpd8tjh3_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:50:42 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:50:42 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpcjnlxt_odir_/tmpd8tjh3_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:50:42 - INFO - build_tables.py:64 - dropping table tmpd8tjh3_tdir__my_sub_dir_2
+2015-11-08 14:50:42 - INFO - build_tables.py:68 - dropping table tmpd8tjh3_tdir__my_sub_dir_2
+2015-11-08 14:50:42 - INFO - build_tables.py:70 - creating new table tmpd8tjh3_tdir__my_sub_dir_2
+2015-11-08 14:50:42 - INFO - build_tables.py:90 - Loading flat file tmpd8tjh3_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:50:42 - INFO - build_tables.py:97 - success.
+2015-11-08 14:50:42 - INFO - build_tables.py:64 - dropping table tmpd8tjh3_tdir__my_sub_dir_1
+2015-11-08 14:50:42 - INFO - build_tables.py:68 - dropping table tmpd8tjh3_tdir__my_sub_dir_1
+2015-11-08 14:50:42 - INFO - build_tables.py:70 - creating new table tmpd8tjh3_tdir__my_sub_dir_1
+2015-11-08 14:50:42 - INFO - build_tables.py:90 - Loading flat file tmpd8tjh3_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:50:42 - INFO - build_tables.py:97 - success.
+2015-11-08 14:50:42 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:50:42 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp4m_p8e_odir_/tmpmvawg7_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:50:42 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:50:42 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:50:42 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp4m_p8e_odir_/tmpmvawg7_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:51:43 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:51:43 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp_hppsl_odir_/tmpxjm2wz_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:51:43 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:51:43 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp_hppsl_odir_/tmpxjm2wz_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:51:43 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:51:43 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpse_y6k_odir_/tmpbwyggr_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:51:43 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:51:43 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpse_y6k_odir_/tmpbwyggr_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:51:43 - INFO - build_tables.py:64 - dropping table tmpbwyggr_tdir__my_sub_dir_2
+2015-11-08 14:51:43 - INFO - build_tables.py:68 - dropping table tmpbwyggr_tdir__my_sub_dir_2
+2015-11-08 14:51:43 - INFO - build_tables.py:70 - creating new table tmpbwyggr_tdir__my_sub_dir_2
+2015-11-08 14:51:43 - INFO - build_tables.py:90 - Loading flat file tmpbwyggr_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:51:43 - INFO - build_tables.py:97 - success.
+2015-11-08 14:51:43 - INFO - build_tables.py:64 - dropping table tmpbwyggr_tdir__my_sub_dir_1
+2015-11-08 14:51:43 - INFO - build_tables.py:68 - dropping table tmpbwyggr_tdir__my_sub_dir_1
+2015-11-08 14:51:43 - INFO - build_tables.py:70 - creating new table tmpbwyggr_tdir__my_sub_dir_1
+2015-11-08 14:51:43 - INFO - build_tables.py:90 - Loading flat file tmpbwyggr_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:51:43 - INFO - build_tables.py:97 - success.
+2015-11-08 14:51:43 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:51:43 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp12j4ig_odir_/tmpevwy3p_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:51:43 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:51:43 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:51:43 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp12j4ig_odir_/tmpevwy3p_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:52:44 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:52:44 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpp4w8ur_odir_/tmptuvtq3_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:52:44 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:52:44 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpp4w8ur_odir_/tmptuvtq3_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:52:44 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:52:44 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpmcg297_odir_/tmpdsxe7i_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:52:44 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:52:44 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpmcg297_odir_/tmpdsxe7i_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:52:44 - INFO - build_tables.py:64 - dropping table tmpdsxe7i_tdir__my_sub_dir_2
+2015-11-08 14:52:44 - INFO - build_tables.py:68 - dropping table tmpdsxe7i_tdir__my_sub_dir_2
+2015-11-08 14:52:44 - INFO - build_tables.py:70 - creating new table tmpdsxe7i_tdir__my_sub_dir_2
+2015-11-08 14:52:44 - INFO - build_tables.py:90 - Loading flat file tmpdsxe7i_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:52:44 - INFO - build_tables.py:97 - success.
+2015-11-08 14:52:44 - INFO - build_tables.py:64 - dropping table tmpdsxe7i_tdir__my_sub_dir_1
+2015-11-08 14:52:44 - INFO - build_tables.py:68 - dropping table tmpdsxe7i_tdir__my_sub_dir_1
+2015-11-08 14:52:44 - INFO - build_tables.py:70 - creating new table tmpdsxe7i_tdir__my_sub_dir_1
+2015-11-08 14:52:44 - INFO - build_tables.py:90 - Loading flat file tmpdsxe7i_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:52:44 - INFO - build_tables.py:97 - success.
+2015-11-08 14:52:44 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:52:44 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpbitx88_odir_/tmpjj4wp8_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:52:44 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:52:44 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:52:44 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpbitx88_odir_/tmpjj4wp8_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:53:01 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:53:01 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:53:01 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:53:01 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpdroc6l_odir_/tmp6jfjhs_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:53:01 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:53:01 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:53:01 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:53:01 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpdroc6l_odir_/tmp6jfjhs_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:53:01 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:53:01 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:53:01 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:53:02 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmplz8vbg_odir_/tmp4i__lz_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:53:02 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:53:02 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:53:02 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:53:02 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmplz8vbg_odir_/tmp4i__lz_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:53:02 - INFO - build_tables.py:64 - dropping table tmp4i__lz_tdir__my_sub_dir_1
+2015-11-08 14:53:02 - INFO - build_tables.py:68 - dropping table tmp4i__lz_tdir__my_sub_dir_1
+2015-11-08 14:53:02 - INFO - build_tables.py:70 - creating new table tmp4i__lz_tdir__my_sub_dir_1
+2015-11-08 14:53:02 - INFO - build_tables.py:90 - Loading flat file tmp4i__lz_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:53:02 - INFO - build_tables.py:97 - success.
+2015-11-08 14:53:02 - INFO - build_tables.py:64 - dropping table tmp4i__lz_tdir__my_sub_dir_2
+2015-11-08 14:53:02 - INFO - build_tables.py:68 - dropping table tmp4i__lz_tdir__my_sub_dir_2
+2015-11-08 14:53:02 - INFO - build_tables.py:70 - creating new table tmp4i__lz_tdir__my_sub_dir_2
+2015-11-08 14:53:02 - INFO - build_tables.py:90 - Loading flat file tmp4i__lz_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:53:02 - INFO - build_tables.py:97 - success.
+2015-11-08 14:53:02 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:53:02 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:53:02 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:53:02 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpbqio36_odir_/tmph8r17c_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:53:02 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:53:02 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:53:02 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:53:02 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpbqio36_odir_/tmph8r17c_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:54:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:54:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:54:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:54:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpjx9ec4_odir_/tmpi_gc_w_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:54:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:54:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:54:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:54:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpjx9ec4_odir_/tmpi_gc_w_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:54:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:54:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:54:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:54:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpl6lybc_odir_/tmph3qtlj_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:54:27 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:54:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:54:27 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:54:27 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpl6lybc_odir_/tmph3qtlj_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:54:27 - INFO - build_tables.py:64 - dropping table tmph3qtlj_tdir__my_sub_dir_2
+2015-11-08 14:54:27 - INFO - build_tables.py:68 - dropping table tmph3qtlj_tdir__my_sub_dir_2
+2015-11-08 14:54:27 - INFO - build_tables.py:70 - creating new table tmph3qtlj_tdir__my_sub_dir_2
+2015-11-08 14:54:28 - INFO - build_tables.py:90 - Loading flat file tmph3qtlj_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:54:28 - INFO - build_tables.py:97 - success.
+2015-11-08 14:54:28 - INFO - build_tables.py:64 - dropping table tmph3qtlj_tdir__my_sub_dir_1
+2015-11-08 14:54:28 - INFO - build_tables.py:68 - dropping table tmph3qtlj_tdir__my_sub_dir_1
+2015-11-08 14:54:28 - INFO - build_tables.py:70 - creating new table tmph3qtlj_tdir__my_sub_dir_1
+2015-11-08 14:54:28 - INFO - build_tables.py:90 - Loading flat file tmph3qtlj_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:54:28 - INFO - build_tables.py:97 - success.
+2015-11-08 14:54:28 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:54:28 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:54:28 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:54:28 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpeib1ku_odir_/tmp5ofsv6_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:54:28 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:54:28 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:54:28 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:54:28 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpeib1ku_odir_/tmp5ofsv6_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:54:31 - INFO - build_tables.py:116 - dropping table tmp5ofsv6_tdir__my_sub_dir_1
+2015-11-08 14:54:31 - INFO - build_tables.py:134 - Loading flat file tmp5ofsv6_tdir__my_sub_dir_1 to the database with INSERTS
+2015-11-08 14:54:31 - INFO - build_tables.py:148 - success.
+2015-11-08 14:54:47 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:54:47 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp6vmphi_odir_/tmptu4qz6_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:54:47 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:54:47 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp6vmphi_odir_/tmptu4qz6_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:54:47 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:54:47 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp8khv17_odir_/tmpnqqcj4_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:54:47 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:54:47 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp8khv17_odir_/tmpnqqcj4_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:54:47 - INFO - build_tables.py:64 - dropping table tmpnqqcj4_tdir__my_sub_dir_2
+2015-11-08 14:54:47 - INFO - build_tables.py:68 - dropping table tmpnqqcj4_tdir__my_sub_dir_2
+2015-11-08 14:54:47 - INFO - build_tables.py:70 - creating new table tmpnqqcj4_tdir__my_sub_dir_2
+2015-11-08 14:54:47 - INFO - build_tables.py:90 - Loading flat file tmpnqqcj4_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:54:47 - INFO - build_tables.py:97 - success.
+2015-11-08 14:54:47 - INFO - build_tables.py:64 - dropping table tmpnqqcj4_tdir__my_sub_dir_1
+2015-11-08 14:54:47 - INFO - build_tables.py:68 - dropping table tmpnqqcj4_tdir__my_sub_dir_1
+2015-11-08 14:54:47 - INFO - build_tables.py:70 - creating new table tmpnqqcj4_tdir__my_sub_dir_1
+2015-11-08 14:54:47 - INFO - build_tables.py:90 - Loading flat file tmpnqqcj4_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:54:47 - INFO - build_tables.py:97 - success.
+2015-11-08 14:54:47 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:54:47 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp2fnrsf_odir_/tmpegqddk_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:54:47 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:54:47 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:54:47 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmp2fnrsf_odir_/tmpegqddk_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:55:00 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:55:00 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpn3uueg_odir_/tmp036eev_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:55:00 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:55:00 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpn3uueg_odir_/tmp036eev_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:55:00 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:55:00 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpt380pi_odir_/tmp9tbc2m_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:55:00 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:55:00 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpt380pi_odir_/tmp9tbc2m_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:55:00 - INFO - build_tables.py:64 - dropping table tmp9tbc2m_tdir__my_sub_dir_1
+2015-11-08 14:55:00 - INFO - build_tables.py:68 - dropping table tmp9tbc2m_tdir__my_sub_dir_1
+2015-11-08 14:55:00 - INFO - build_tables.py:70 - creating new table tmp9tbc2m_tdir__my_sub_dir_1
+2015-11-08 14:55:00 - INFO - build_tables.py:90 - Loading flat file tmp9tbc2m_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 14:55:00 - INFO - build_tables.py:97 - success.
+2015-11-08 14:55:00 - INFO - build_tables.py:64 - dropping table tmp9tbc2m_tdir__my_sub_dir_2
+2015-11-08 14:55:00 - INFO - build_tables.py:68 - dropping table tmp9tbc2m_tdir__my_sub_dir_2
+2015-11-08 14:55:00 - INFO - build_tables.py:70 - creating new table tmp9tbc2m_tdir__my_sub_dir_2
+2015-11-08 14:55:00 - INFO - build_tables.py:90 - Loading flat file tmp9tbc2m_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 14:55:00 - INFO - build_tables.py:97 - success.
+2015-11-08 14:55:00 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_1
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table100
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table200
+2015-11-08 14:55:00 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpc1teu0_odir_/tmpy5_c3c_tdir__my_sub_dir_1_data.csv
+2015-11-08 14:55:00 - INFO - build_flat_files.py:31 - creating np array from my_sub_dir_2
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table300
+2015-11-08 14:55:00 - INFO - build_flat_files.py:55 - working on file: TRANS_OD_table400
+2015-11-08 14:55:00 - INFO - build_flat_files.py:86 - Done.  File saved as /tmp/tmpc1teu0_odir_/tmpy5_c3c_tdir__my_sub_dir_2_data.csv
+2015-11-08 14:55:00 - INFO - build_tables.py:115 - dropping table tmpy5_c3c_tdir__my_sub_dir_1
+2015-11-08 14:55:00 - INFO - build_tables.py:133 - Loading flat file tmpy5_c3c_tdir__my_sub_dir_1 to the database with INSERTS
+2015-11-08 14:55:00 - INFO - build_tables.py:147 - success.

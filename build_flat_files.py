@@ -14,7 +14,7 @@ import shutil
 import numpy as np
 from pprint import pprint
 
-from utils_and_settings import get_column_name, get_table_name, make_OD_array, name_to_flat
+from utils_and_settings import get_column_name, get_table_name_from_dir, make_OD_array, name_to_flat
 
 logger = logging.getLogger('trans_logger')
 
@@ -30,7 +30,7 @@ def build_flat_files(in_dir, out_dir):
         for d in dirs:
             logger.info('creating np array from {}'.format(d))
             #figure out which db table #this will be the last bit of the root + current           
-            table_name=get_table_name(os.path.join(root, d) )
+            table_name=get_table_name_from_dir(os.path.join(root, d) )
             #what files?
             files=os.listdir(os.path.join(root,d))
             cols= len(files) + 2
@@ -82,7 +82,7 @@ def build_flat_files(in_dir, out_dir):
             data_fn=os.path.join(root, out_dir, table_name + "_data.csv")
             #print('data:', data_fn)            
             np.savetxt(data_fn, npa, delimiter=',', header="|".join(columns_reported), fmt="%u")
-            #pprint(npa)
+            #(npa)
             logger.info('Done.  File saved as {}'.format(data_fn))
 
             

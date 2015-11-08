@@ -57,7 +57,7 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
     for root, dirs, files in os.walk(pdir):
         for f in files:
             #the table name comes from the file name
-            t_name = utils_and_settings.get_table_name(os.path.splitext(f)[0])
+            t_name = utils_and_settings.get_table_name_from_fn(f)
             
             #DROPs existing table. 
             if drop_old:
@@ -111,7 +111,6 @@ def load_with_insert(db=None, t_name=None, file=None, drop_old=None):
     curs = conn.cursor()        
     
     if drop_old:
-        #print('DROP TABLE IF EXISTS {}'.format(t_name))
         curs.execute('DROP TABLE IF EXISTS {}'.format(t_name))
         logger.info('dropping table {}'.format(t_name))
 

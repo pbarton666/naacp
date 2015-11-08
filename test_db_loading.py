@@ -96,7 +96,7 @@ class tester(unittest.TestCase):
         shutil.rmtree(self.temp_dir)
         shutil.rmtree(self.out_dir)
         
-    def xtest_flat_files(self)    :
+    def test_flat_files(self)    :
         "make sure the flat files are created correctly"
         
         #This creates consolidated flat files from our test files
@@ -157,7 +157,7 @@ class tester(unittest.TestCase):
                         
 
                         
-    def xtest_load_with_copy(self):
+    def test_load_with_copy(self):
         "ensures data tables are loading correctly by loading these flat files"
         build_flat_files.build_flat_files(self.temp_dir, self.out_dir)
         #loads the data tables (INSERT method)
@@ -196,8 +196,9 @@ class tester(unittest.TestCase):
         #loads the data tables (INSERT method)
         files = os.listdir(self.out_dir)
         files.sort()
-        fn = os.path.join(self.out_dir,files[0]) 
-        t_name=utils_and_settings.get_table_name(self.out_dir)
+        first_file = files[0]
+        fn = os.path.join(self.out_dir,first_file) 
+        t_name = utils_and_settings.get_table_name_from_fn(first_file)
         table=build_tables.load_with_insert(db=DB, t_name=t_name, file=fn, drop_old=True)
 
         #grab the data and ensure it's right

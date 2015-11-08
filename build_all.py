@@ -5,8 +5,10 @@ import logging
 import logging.handlers
 
 #*******change these to your own settings (dirs must exist)***
-DATA_DIR='/home/pat/mary/NoRed-YesHwy'
-OUT_DIR = '/home/pat/mary/flat_NoRed-YesHwy'
+#DATA_DIR='/home/pat/mary/NoRed-YesHwy'
+#OUT_DIR = '/home/pat/mary/flat_NoRed-YesHwy'
+DATA_DIR='/home/pat/mary/test'
+OUT_DIR = '/home/pat/mary/flat_test'
 DB='naacp'
 LOG_FILE='loader.log'
 LOG_LEVEL='INFO'   #set to 'WARN' to capure only data loading issues

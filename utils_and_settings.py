@@ -30,7 +30,7 @@ def get_column_name(file):
         col_name = raw_name
     return col_name
 
-def get_table_name(dname):
+def get_table_name_from_dir(dname):
     """Does not quite work as Carl would like.  Psql makes everything lc, anyway."""
 
     """Finds the database table name associated with a directory name.
@@ -50,6 +50,11 @@ def get_table_name(dname):
         t_name=split_dir[-2] + '_' + t_name 
 
     return t_name.lower()
+
+def get_table_name_from_fn(fn):
+    "trim the _data.csv bit from the end of the flat file name"
+    return fn[:-9]
+    
 
 
 def make_OD_array(rows):
