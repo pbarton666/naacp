@@ -15,7 +15,7 @@ dirs = [{'data': '/home/pat/mary/NoRed-YesHwy',  'scratch': '/home/pat/mary/flat
         {'data': '/home/pat/mary/NoRed-NoHwy',   'scratch': '/home/pat/mary/flat_NoRed-NoHwy'},
         {'data': '/home/pat/mary/YesRed-YesHwy', 'scratch': '/home/pat/mary/flat_YesRed-YesHwy'},
         {'data': '/home/pat/mary/YesRed-NoHwy',  'scratch': '/home/pat/mary/flat_YesRed-NoHwy'},
-        {#'data': '/home/pat/mary/test',  'scratch': '/home/pat/mary/flat_test'},
+        #{'data': '/home/pat/mary/test',  'scratch': '/home/pat/mary/flat_test'},
         ]
 
 #database name
