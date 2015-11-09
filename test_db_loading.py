@@ -96,7 +96,7 @@ class tester(unittest.TestCase):
         shutil.rmtree(self.temp_dir)
         shutil.rmtree(self.out_dir)
         
-    def xtest_flat_files_partitioned(self)    :
+    def test_flat_files_partitioned(self)    :
         """make sure the flat files are created correctly, even when 
             forced to be partitioned"""
         
@@ -140,21 +140,20 @@ class tester(unittest.TestCase):
                 header=content.pop(0)
                 header=header.replace('#','').strip().split('|')
                 
-                self.assertEqual(len(content), 16) #rows*cols
+                self.assertEqual(len(content), 8) #rows*cols
                
                 #we'll check the first and last rows, along w/ total count
                 first_row=content[0]
                 last_row=content[-1]
                     
-                if os.path.splitext(os.path.basename(t))[0] == 'my_sub_dir_1_data':
-                    #self.assertTrue(expr)
+                if 'my_sub_dir_1_data0' in os.path.splitext(os.path.basename(t))[0]:
                     #the 100 and 200 series data (table data elements start with '100' and '200')
                     self.assertEqual(first_row.strip(), '1,1,10011,20011')  #o=1, d=1, (100 series, 11), (200 series, 11)
-                    self.assertEqual(last_row.strip(),  '4,4,10044,20044')  #o=4, d=4, (100 series, 11), (200 series, 11)
-                if os.path.splitext(os.path.basename(t))[0] == 'my_sub_dir_2_data':  
+                    self.assertEqual(last_row.strip(),  '2,4,10024,20024')  #o=4, d=4, (100 series, 11), (200 series, 11)
+                if 'my_sub_dir_2_data0' in os.path.splitext(os.path.basename(t))[0]:
                     #the 400 and 300 series data (table data elements  with '300' and '400')
                     self.assertEqual(first_row.strip(), '1,1,30011,40011')  #o=1, d=1, (100 series, 11), (200 series, 11)
-                    self.assertEqual(last_row.strip() , '4,4,30044,40044')  #o=4, d=4, (100 series, 11), (200 series, 11) 
+                    self.assertEqual(last_row.strip() , '2,4,30024,40024')  #o=4, d=4, (100 series, 11), (200 series, 11) 
                                 
         
     def test_flat_files(self)    :
@@ -216,7 +215,38 @@ class tester(unittest.TestCase):
                     self.assertEqual(first_row.strip(), '1,1,30011,40011')  #o=1, d=1, (100 series, 11), (200 series, 11)
                     self.assertEqual(last_row.strip() , '4,4,30044,40044')  #o=4, d=4, (100 series, 11), (200 series, 11) 
                         
-
+    def test_load_with_copy_partitioned(self):
+        "ensures data tables are loading correctly by loading these flat files"
+        build_flat_files.build_flat_files(self.temp_dir, self.out_dir,test_max_rows=2)
+        #loads the data tables (INSERT method)
+        fn=os.path.join(self.out_dir, 'my_sub_dir_1_data.csv')
+        t_name='dir_1_data'
+        table=build_tables.build_tables(db=DB, pdir=self.out_dir, drop_old=True)
+        
+        #grab the data and ensure it's right
+        curs.execute('END')
+        curs.execute("SELECT * FROM {}".format(t_name))
+        actual=curs.fetchall()
+        
+        target=[(1, 1, 10011, 20011),
+                (1, 2, 10012, 20012),
+                (1, 3, 10013, 20013),
+                (1, 4, 10014, 20014),
+                (2, 1, 10021, 20021),
+                (2, 2, 10022, 20022),
+                (2, 3, 10023, 20023),
+                (2, 4, 10024, 20024),
+                (3, 1, 10031, 20031),
+                (3, 2, 10033, 20033),
+                (3, 3, 10033, 20033),
+                (3, 4, 10034, 20034),
+                (4, 1, 10041, 20041),
+                (4, 2, 10034, 20034),
+                (4, 3, 10043, 20043),
+                (4, 4, 10044, 20044)]
+        
+        for t, a in zip(target, actual):
+            self.assertEqual(t, a, 'load_with_insert failed'  )
                         
     def test_load_with_copy(self):
         "ensures data tables are loading correctly by loading these flat files"
@@ -251,7 +281,7 @@ class tester(unittest.TestCase):
         for t, a in zip(target, actual):
             self.assertEqual(t, a, 'load_with_insert failed'  )
     
-    def test_load_with_insert(self):
+    def xtest_load_with_insert(self):
         "ensures data tables are loading correctly by loading these flat files"
         build_flat_files.build_flat_files(self.temp_dir, self.out_dir)
         #loads the data tables (INSERT method)

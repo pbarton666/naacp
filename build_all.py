@@ -1,8 +1,11 @@
-import build_flat_files
-import build_tables
+
 
 import logging
 import logging.handlers
+
+import build_flat_files
+import build_tables
+import describe_db
 
 #*******change these to your own settings (dirs must exist)***
 
@@ -61,3 +64,6 @@ if __name__=='__main__':
             logger.info("*******************************")
             logger.info("Beginning new scenario")
             logger.info("*******************************")
+    
+    describe_db.describe_db(db=DB)      
+    

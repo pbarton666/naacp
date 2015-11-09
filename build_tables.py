@@ -53,6 +53,10 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
     except psycopg2.ProgrammingError:      
         pass  #datbase already exists
 
+    #With partitioned files, make sure that the table is only deleted once
+    #  We'll use this to remember which have been DROPped
+    safe_tables=set()
+    
     #find each file in the data dir, create a db table, and load the data
     for root, dirs, files in os.walk(pdir):
         for f in files:
@@ -60,12 +64,14 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
             t_name = utils_and_settings.get_table_name_from_fn(f)
             
             #DROPs existing table. 
-            if drop_old:
+            if drop_old and not t_name in safe_tables:
                 logger.debug('dropping table {}'.format(t_name))
                 curs.execute('END')
                 sql = 'DROP TABLE IF EXISTS {}'.format(t_name)
                 curs.execute(sql)
                 logger.debug('dropping table {}'.format(t_name))
+                safe_tables.add(t_name)
+                
 
             logger.debug('creating new table {}'.format(t_name))
 

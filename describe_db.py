@@ -45,9 +45,6 @@ def describe_db(db=DB):
                 msg = '     {}'.format(tidbit[0])
                 print(msg)
         
-        
-
-        
 if __name__=='__main__':
     describe_db()
     ('dir_1_data',)

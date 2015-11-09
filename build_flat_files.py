@@ -15,7 +15,7 @@ import numpy as np
 from pprint import pprint
 
 from utils_and_settings import get_column_name, get_table_name_from_dir, make_OD_array, name_to_flat
-
+from utils_and_settings import get_window
 logger = logging.getLogger('trans_logger')
 
 def find_max_rows(cols):
@@ -49,7 +49,7 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
             #what files?
             files=os.listdir(os.path.join(root,d))
             cols= len(files) + 2
-            columns_reported = ['origin', 'dest']
+            #columns_reported = ['origin', 'dest']
             #rows and cols for main array 
             if files:
                 data = np.genfromtxt(os.path.join(root, d, files[0]), delimiter=',', dtype=int)
@@ -57,8 +57,6 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                 initial_rows = rows
                 
             #can we make a big enough array (depends on the computer)?
-            if not test_max_rows:
-                max_rows=1e10
             try:
                 npa=np.zeros((rows**2, cols), dtype=int)
             except:
@@ -71,10 +69,18 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                 rows = test_max_rows
             
             #we'll need to iterate this block as many times as required to get all the rows
-            rows_so_far = 1  #we'll skip the row header
+            rows_so_far = 0              
+            #a generator to calculate header and footer rows to skip
+            windows= get_window(initial_rows, rows_per=rows, start=2)             
+            
+            
             while rows_so_far < initial_rows:           
-                npa=np.zeros((rows**2, cols), dtype=int)   #all zero arr
-                od = make_OD_array(rows)
+                #npa=np.zeros((rows**2, cols), dtype=int)   #all zero arr
+                
+                columns_reported = ['origin', 'dest']
+                
+                npa=np.zeros((rows*cols, cols), dtype=int)   #all zero arr
+                od = make_OD_array(rows, cols=cols)
                 #replace the first two cols with O D values
                 npa[:,0]=od[0]
                 npa[:,1]=od[1]              
@@ -83,10 +89,16 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                 data_col=2
                 files.sort()
                 
+                this_window=next(windows)     #sets header and footer parts of file to skip
+                skip_header = this_window['skip_header']
+                skip_footer = this_window['skip_footer']+1
+                
                 for f in files:
                     logger.debug('working on file: {}'.format(f))
                     fn = os.path.join(root, d, f)
-                    raw_data = np.genfromtxt(fn, delimiter=',', dtype=int, skip_header=rows_so_far)
+                    raw_data = np.genfromtxt(fn, delimiter=',', dtype=int, 
+                                             skip_header=skip_header,
+                                             skip_footer=skip_footer)
                     data = raw_data[:, 1:]          #removes row/col headers
                     data=data.ravel()            #turns it into a vector
                    #check if this is a null (all zeros) file - we can only do this on files ingested intact
@@ -111,7 +123,7 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                     
                     data_col+=1
     
-                #save the file 
+                #save the output file 
                 #data_fn=os.path.join(root, out_dir, table_name + "_data.csv")
                 #save the data file, labeled with the 'rows_so_far'
                 data_fn=os.path.join(root, out_dir, table_name + "_data" + str(rows_so_far) + ".csv")
@@ -123,9 +135,7 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                     msg='Could not save file {} file {} for info in {}'
                     logger.warning(msg.format(data_fn, os.path.join(root,d)))
                 logger.debug('success')
-                logger.debug('Done.  File saved as {}'.format(data_fn))
-            
-                #end of while loop cleanup - send it around again if not doneH
-                rows_so_far+= max_rows
+                rows_so_far += rows
+
             
             
