@@ -24,6 +24,9 @@ def build_flat_files(in_dir, out_dir):
     
     np.set_printoptions(precision=4)
     data_file_lengths=[]
+    
+    if not os.path.exists(out_dir):
+        os.mkdir(out_dir)  
 
     for root, dirs, files in os.walk(in_dir):
         #each dir will contain files for a single array

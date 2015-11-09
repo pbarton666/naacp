@@ -2943,3 +2943,77 @@
 2015-11-08 14:55:00 - INFO - build_tables.py:115 - dropping table tmpy5_c3c_tdir__my_sub_dir_1
 2015-11-08 14:55:00 - INFO - build_tables.py:133 - Loading flat file tmpy5_c3c_tdir__my_sub_dir_1 to the database with INSERTS
 2015-11-08 14:55:00 - INFO - build_tables.py:147 - success.
+2015-11-08 15:05:48 - INFO - build_flat_files.py:31 - creating np array from HWY_OD_TimeCost
+2015-11-08 15:05:57 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 15:06:03 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 15:06:19 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_hwy_od_data.csv
+2015-11-08 15:06:19 - INFO - build_flat_files.py:31 - creating np array from ModeChoice_OD_byPurposeIncomeMode
+2015-11-08 15:06:27 - INFO - build_flat_files.py:55 - working on file: MODE_HBO_Inc1_DA.csv
+2015-11-08 15:06:33 - INFO - build_flat_files.py:55 - working on file: MODE_HBO_Inc1_DBus.csv
+2015-11-08 15:06:49 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_mode_choice_od_data.csv
+2015-11-08 15:06:49 - INFO - build_flat_files.py:31 - creating np array from PersonTrip_OD_byPurposeIncome
+2015-11-08 15:06:56 - INFO - build_flat_files.py:55 - working on file: Trips_HBO_Inc1.csv
+2015-11-08 15:07:02 - INFO - build_flat_files.py:55 - working on file: Trips_HBO_Inc2.csv
+2015-11-08 15:07:19 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_person_trip_od_data.csv
+2015-11-08 15:07:19 - INFO - build_flat_files.py:31 - creating np array from TOD_OD_byPurposeIncomeTODOccupancy
+2015-11-08 15:07:27 - INFO - build_flat_files.py:55 - working on file: TOD_HBO_Inc1_AM_HOV2.csv
+2015-11-08 15:07:33 - INFO - build_flat_files.py:55 - working on file: TOD_HBO_Inc1_AM_HOV3.csv
+2015-11-08 15:07:49 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_tod_od_data.csv
+2015-11-08 15:07:49 - INFO - build_flat_files.py:31 - creating np array from TRANSIT_OD_TimeCost
+2015-11-08 15:07:57 - INFO - build_flat_files.py:55 - working on file: TRANSIT_OP_DBus_AutoDistance.csv
+2015-11-08 15:08:03 - INFO - build_flat_files.py:55 - working on file: TRANSIT_OP_DBus_AutoTime.csv
+2015-11-08 15:08:18 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_test/test_transit_od_timecost_data.csv
+2015-11-08 15:08:18 - INFO - build_tables.py:64 - dropping table test_hwy_od
+2015-11-08 15:08:18 - INFO - build_tables.py:68 - dropping table test_hwy_od
+2015-11-08 15:08:18 - INFO - build_tables.py:70 - creating new table test_hwy_od
+2015-11-08 15:08:18 - INFO - build_tables.py:90 - Loading flat file test_hwy_od to the database with COPY
+2015-11-08 15:08:25 - INFO - build_tables.py:97 - success.
+2015-11-08 15:08:25 - INFO - build_tables.py:64 - dropping table test_mode_choice_od
+2015-11-08 15:08:25 - INFO - build_tables.py:68 - dropping table test_mode_choice_od
+2015-11-08 15:08:25 - INFO - build_tables.py:70 - creating new table test_mode_choice_od
+2015-11-08 15:08:26 - INFO - build_tables.py:90 - Loading flat file test_mode_choice_od to the database with COPY
+2015-11-08 15:08:34 - INFO - build_tables.py:97 - success.
+2015-11-08 15:08:34 - INFO - build_tables.py:64 - dropping table test_person_trip_od
+2015-11-08 15:08:34 - INFO - build_tables.py:68 - dropping table test_person_trip_od
+2015-11-08 15:08:34 - INFO - build_tables.py:70 - creating new table test_person_trip_od
+2015-11-08 15:08:34 - INFO - build_tables.py:90 - Loading flat file test_person_trip_od to the database with COPY
+2015-11-08 15:08:41 - INFO - build_tables.py:97 - success.
+2015-11-08 15:08:41 - INFO - build_tables.py:64 - dropping table test_tod_od
+2015-11-08 15:08:41 - INFO - build_tables.py:68 - dropping table test_tod_od
+2015-11-08 15:08:41 - INFO - build_tables.py:70 - creating new table test_tod_od
+2015-11-08 15:08:42 - INFO - build_tables.py:90 - Loading flat file test_tod_od to the database with COPY
+2015-11-08 15:08:50 - INFO - build_tables.py:97 - success.
+2015-11-08 15:08:50 - INFO - build_tables.py:64 - dropping table test_transit_od_timecost
+2015-11-08 15:08:50 - INFO - build_tables.py:68 - dropping table test_transit_od_timecost
+2015-11-08 15:08:50 - INFO - build_tables.py:70 - creating new table test_transit_od_timecost
+2015-11-08 15:08:50 - INFO - build_tables.py:90 - Loading flat file test_transit_od_timecost to the database with COPY
+2015-11-08 15:08:57 - INFO - build_tables.py:97 - success.
+2015-11-08 15:18:47 - INFO - build_flat_files.py:31 - creating np array from HWY_OD_TimeCost
+2015-11-08 15:18:50 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 15:18:52 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 15:18:54 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TOLL.csv
+2015-11-08 15:18:55 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_DISTANCE.csv
+2015-11-08 15:18:57 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TIME.csv
+2015-11-08 15:18:59 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TOLL.csv
+2015-11-08 15:19:01 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_DISTANCE.csv
+2015-11-08 15:19:03 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TIME.csv
+2015-11-08 15:19:05 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TOLL.csv
+2015-11-08 15:19:07 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_DISTANCE.csv
+2015-11-08 15:19:09 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TIME.csv
+2015-11-08 15:19:10 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TOLL.csv
+2015-11-08 15:35:20 - INFO - build_flat_files.py:31 - creating np array from HWY_OD_TimeCost
+2015-11-08 15:35:28 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 15:35:34 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 15:35:40 - INFO - build_flat_files.py:55 - working on file: HWY_OP_HOV_TOLL.csv
+2015-11-08 15:35:46 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_DISTANCE.csv
+2015-11-08 15:35:52 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TIME.csv
+2015-11-08 15:35:58 - INFO - build_flat_files.py:55 - working on file: HWY_OP_SOV_TOLL.csv
+2015-11-08 15:36:04 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_DISTANCE.csv
+2015-11-08 15:36:10 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TIME.csv
+2015-11-08 15:36:16 - INFO - build_flat_files.py:55 - working on file: HWY_PK_HOV_TOLL.csv
+2015-11-08 15:36:22 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_DISTANCE.csv
+2015-11-08 15:36:28 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TIME.csv
+2015-11-08 15:36:34 - INFO - build_flat_files.py:55 - working on file: HWY_PK_SOV_TOLL.csv
+2015-11-08 16:08:18 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_NoRed-YesHwy/nored-yeshwy_hwy_od_data.csv
+2015-11-08 16:08:18 - INFO - build_flat_files.py:31 - creating np array from Loaded_HWY_OD_TimeCost
+2015-11-08 16:08:27 - INFO - build_flat_files.py:55 - working on file: LOADED_HWY_DISTANCE_HOV_AM.csv
