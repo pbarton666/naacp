@@ -23,7 +23,7 @@ dirs = [{'data': '/home/pat/mary/NoRed-YesHwy',  'scratch': '/home/pat/mary/flat
 DB='naacp'
 #log file name - lives in the script directory
 LOG_FILE='loader.log'
-#set to 'WARN' to capure only data loading issues.  'INFO' is verbose.
+#set to 'WARN' to capure only data loading issues.  'DEBUG' is verbose.
 LOG_LEVEL='DEBUG'   
 
 #**** login credentials need to be updated in database.py ***
