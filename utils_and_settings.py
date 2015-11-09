@@ -57,7 +57,7 @@ def get_table_name_from_fn(fn):
     
 
 
-def make_OD_array(rows, cols=None, start_row=1):
+def make_OD_array(rows=None, cols=None, start_row=1, max_row=99999):
     """ orig/dest pairs to match cell contents.  There's probably a
           slicker way to do it in Numpy."""
     arr=[]
@@ -66,24 +66,31 @@ def make_OD_array(rows, cols=None, start_row=1):
     #we'll assume a square array unless we're doing a partition
     if not cols:
         cols = rows
-    #vals = list(range(start_row, rows+1))
-    for r in range(1,rows+1):
+
+    for r in range(start_row, min(start_row+rows, max_row+1)):
         rwa.extend([r]*cols)
         for c in range(1, cols+1):
             ca.extend([c])
     return [rwa,ca]
 
-def get_window(init_rows, rows_per=None, start=None):
+def get_window(init_rows, rows_per=None, start=None, max_rows=1179):
     header_skip = start-1
-    footer_skip = init_rows - (start + rows_per) +1
+    footer_skip = init_rows -(header_skip + rows_per ) 
+    start=header_skip + 1
+    end=init_rows + start-1 - footer_skip 
+    #print(start, end)
     rows_so_far=0
     while True:
-        d={'skip_header': header_skip, 'skip_footer': footer_skip}
-        header_skip+=rows_per
-        footer_skip-=rows_per
+        d={'skip_header': header_skip, 'skip_footer': footer_skip,
+           'first_row': start, 'last_row': end} 
+        rows= init_rows - header_skip  - footer_skip
+        #print(rows)
         yield d
+        header_skip+=rows_per
+        footer_skip=max(0, footer_skip-rows_per)         
+        start=header_skip+1
+        end = init_rows-footer_skip
         
-        yield {'skip_header': header_skip, 'skip_footer': footer_skip}
         
 def get_base_fn(fn)     :
     "gets base file name from a partitioned data file"

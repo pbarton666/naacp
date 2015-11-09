@@ -60,6 +60,8 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
     #find each file in the data dir, create a db table, and load the data
     for root, dirs, files in os.walk(pdir):
         for f in files:
+            
+            logging.info('building table for file {}'.format(f))
             #the table name comes from the file name
             t_name = utils_and_settings.get_table_name_from_fn(f)
             
@@ -82,7 +84,7 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
                 cols =header.replace('#','').strip().split('|')
                 db_cols=[]
                 for c in cols:
-                    db_cols.append(utils_and_settings.get_column_name(c))                 
+                    db_cols.append(c)                 
                     
                 #create a table based on the columns (assume all fields int)
                 sql='CREATE TABLE IF NOT EXISTS {} (\n'.format(t_name)

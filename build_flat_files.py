@@ -43,7 +43,7 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
     for root, dirs, files in os.walk(in_dir):
         #each dir will contain files for a single array
         for d in dirs:
-            logger.debug('creating np array from {}'.format(d))
+            logger.info('creating np array from {}'.format(d))
             #figure out which db table #this will be the last bit of the root + current           
             table_name=get_table_name_from_dir(os.path.join(root, d) )
             #what files?
@@ -64,7 +64,8 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
             except:
                 #nope.  Let's see what we *can* do.
                 
-                rows = find_max_rows(output_cols)
+                rows = find_max_rows(input_columns, output_cols)
+                logging.debug('files in {} are too big for single load.  Doing it piecemeal'.format(d))
 
             #this is an override to facilitate testing - not used in practice
             if test_max_rows:
@@ -79,9 +80,13 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
             while rows_so_far < initial_rows:           
                 
                 columns_reported = ['origin', 'dest']
-                
-                npa=np.zeros((rows*input_cols, output_cols), dtype=int)   #all zero arr
-                od = make_OD_array(rows, cols=input_cols)
+                if rows_so_far>=1000:
+                    a=1
+                rows_needed = min(rows*input_cols, (initial_rows-rows_so_far)*input_cols)
+                #print('needed {}'.format(rows_needed))
+                npa=np.zeros((rows_needed, output_cols), dtype=int)   #all zero arr
+                od = make_OD_array(rows, cols=input_cols, start_row=rows_so_far+1, max_row=initial_rows)
+                #print(od[0][0], od[0][-1], od[1][0], od[1][-1])
                 #replace the first two cols with O D values
                 npa[:,0]=od[0]
                 npa[:,1]=od[1]              
@@ -92,10 +97,10 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                 
                 this_window=next(windows)     #sets header and footer parts of file to skip
                 skip_header = this_window['skip_header']
-                skip_footer = this_window['skip_footer']+1
+                skip_footer = this_window['skip_footer']
                 
                 for f in files:
-                    logger.debug('working on file: {}'.format(f))
+                    logger.debug('working on file: {}: beginning at line {}'.format(f, skip_header))
                     fn = os.path.join(root, d, f)
                     raw_data = np.genfromtxt(fn, delimiter=',', dtype=int, 
                                              skip_header=skip_header,
