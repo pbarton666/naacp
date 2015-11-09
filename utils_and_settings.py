@@ -52,8 +52,8 @@ def get_table_name_from_dir(dname):
     return t_name.lower()
 
 def get_table_name_from_fn(fn):
-    "trim the _data.csv bit from the end of the flat file name"
-    return fn[:-9]
+    "trim the _dataXXX.csv bit from the end of the flat file name"
+    return fn[:fn.find('_data')]
     
 
 

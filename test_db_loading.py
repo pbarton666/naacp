@@ -96,6 +96,67 @@ class tester(unittest.TestCase):
         shutil.rmtree(self.temp_dir)
         shutil.rmtree(self.out_dir)
         
+    def xtest_flat_files_partitioned(self)    :
+        """make sure the flat files are created correctly, even when 
+            forced to be partitioned"""
+        
+        #This creates consolidated flat files from our test files
+        build_flat_files.build_flat_files(self.temp_dir, self.out_dir, test_max_rows=2)
+
+        #gather and sort the output files
+        test_files=[]
+        for root, dirs, files in os.walk(self.out_dir):
+            for f in files:
+                test_files.append(os.path.join(root, f))       
+        test_files.sort()
+        
+        for t in test_files:
+            """make sure that contents of the output files match what we expect.  So what do we expect?
+               
+               Directory /my_sub_dir_1/ has two files called TRANS_OD__100 and TRANS_OD__200.
+               Each file has a header row, a header column. Other elements are OD pairs (row=O, col =D).
+               
+               From these files, we are creating a new file with a header row: 
+               #header  origin, destination, <file 100 header>, <file 200 header>
+               ... designating origin, destination, and vectorized versions of file 100 and file 200 like this:
+               
+               <origin>  <destination>   <file 100 series><row><col>  <file 200 series><row><col>
+               
+               The first few rows for my_sub_dir_1.csv would be be:
+               1, 1, 10011, 20011
+               1, 2, 10012, 20012
+               1, 3, 10013, 20013
+               
+               ... the first data column ends with '100', designating the name of the file TRANS_OD_100 and the second
+               begins with '200', designating the name of the file TRANS_OD_table_200
+               
+            """
+            
+            with open(t, 'r') as f:
+                lines = 0
+                content= f.readlines()
+                
+                #strip the header and clean it up
+                header=content.pop(0)
+                header=header.replace('#','').strip().split('|')
+                
+                self.assertEqual(len(content), 16) #rows*cols
+               
+                #we'll check the first and last rows, along w/ total count
+                first_row=content[0]
+                last_row=content[-1]
+                    
+                if os.path.splitext(os.path.basename(t))[0] == 'my_sub_dir_1_data':
+                    #self.assertTrue(expr)
+                    #the 100 and 200 series data (table data elements start with '100' and '200')
+                    self.assertEqual(first_row.strip(), '1,1,10011,20011')  #o=1, d=1, (100 series, 11), (200 series, 11)
+                    self.assertEqual(last_row.strip(),  '4,4,10044,20044')  #o=4, d=4, (100 series, 11), (200 series, 11)
+                if os.path.splitext(os.path.basename(t))[0] == 'my_sub_dir_2_data':  
+                    #the 400 and 300 series data (table data elements  with '300' and '400')
+                    self.assertEqual(first_row.strip(), '1,1,30011,40011')  #o=1, d=1, (100 series, 11), (200 series, 11)
+                    self.assertEqual(last_row.strip() , '4,4,30044,40044')  #o=4, d=4, (100 series, 11), (200 series, 11) 
+                                
+        
     def test_flat_files(self)    :
         "make sure the flat files are created correctly"
         

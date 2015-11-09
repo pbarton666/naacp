@@ -49,7 +49,7 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
     try:
         curs.execute('END')
         curs.execute('CREATE DATABASE {}'.format(db))
-        logger.info('creating new database')
+        logger.debug('creating new database')
     except psycopg2.ProgrammingError:      
         pass  #datbase already exists
 
@@ -61,13 +61,13 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
             
             #DROPs existing table. 
             if drop_old:
-                logger.info('dropping table {}'.format(t_name))
+                logger.debug('dropping table {}'.format(t_name))
                 curs.execute('END')
                 sql = 'DROP TABLE IF EXISTS {}'.format(t_name)
                 curs.execute(sql)
-                logger.info('dropping table {}'.format(t_name))
+                logger.debug('dropping table {}'.format(t_name))
 
-            logger.info('creating new table {}'.format(t_name))
+            logger.debug('creating new table {}'.format(t_name))
 
             #get the header contains basis for col names. Example: # origin|dest|col1name|col2
             file=os.path.join(root, f)
@@ -85,21 +85,21 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
                 sql = sql[:-2] + ');' #
                 curs.execute(sql)
                 conn.commit()  
-                logger.info('Created table {}'.format(t_name))
-                logger.info('Columns: {}'.format(db_cols))
+                logger.debug('Created table {}'.format(t_name))
+                logger.debug('Columns: {}'.format(db_cols))
                 
                 #try to load the file with COPY
-                logger.info('Loading flat file {} to the database with COPY'.format(t_name))
+                logger.debug('Loading flat file {} to the database with COPY'.format(t_name))
                 fil.seek(0)
                 cols = '(' + ', '.join(db_cols) + ')'
                 sql="COPY {} {} FROM STDIN WITH CSV HEADER DELIMITER AS ','".format(t_name, cols) 
                 try:
                     curs.copy_expert(sql=sql, file=fil)    
                     conn.commit()
-                    logger.info('success.')
+                    logger.debug('success.')
                 except: 
                     #failed - probably due to memory issues; do it the slow way with INSERTs
-                    logger.info('Nope.  COPY failed.')                    
+                    logger.debug('Nope.  COPY failed.')                    
                     load_with_insert(db=db, t_name=t_name, file=file, drop_old=drop_old)    
 
                   
@@ -114,7 +114,7 @@ def load_with_insert(db=None, t_name=None, file=None, drop_old=None):
     
     if drop_old:
         curs.execute('DROP TABLE IF EXISTS {}'.format(t_name))
-        logger.info('dropping table {}'.format(t_name))
+        logger.debug('dropping table {}'.format(t_name))
 
     with open(file, 'r') as fil:
         header = fil.readline() 
@@ -132,7 +132,7 @@ def load_with_insert(db=None, t_name=None, file=None, drop_old=None):
         curs.execute(sql)
         conn.commit()  
 
-        logger.info('Loading flat file {} to the database with INSERTS'.format(t_name))
+        logger.debug('Loading flat file {} to the database with INSERTS'.format(t_name))
 
         for line in fil.readlines():
             sql="INSERT INTO {} (".format(t_name, cols) 
@@ -146,11 +146,6 @@ def load_with_insert(db=None, t_name=None, file=None, drop_old=None):
             curs.execute(sql)  
 
         conn.commit()
-        logger.info('success.')    
+        logger.debug('success.')    
         conn.close()
     return t_name
-
-
-
-
-
