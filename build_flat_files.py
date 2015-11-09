@@ -18,14 +18,14 @@ from utils_and_settings import get_column_name, get_table_name_from_dir, make_OD
 from utils_and_settings import get_window
 logger = logging.getLogger('trans_logger')
 
-def find_max_rows(cols):
-    "finds how many rows we can create at once, knocking off a few at a time"
+def find_max_rows(input_cols, output_cols):
+    "finds how many rows we can create at once, adding a few at a time"
     incr=100
     rows=0
     while True:
         rows+=incr
         try:
-            npa=np.zeros((rows**2, cols), dtype=int)  
+            npa=np.zeros((rows*input_cols, output_cols), dtype=int)  
         except:
             break   
     return rows-incr
@@ -48,21 +48,23 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
             table_name=get_table_name_from_dir(os.path.join(root, d) )
             #what files?
             files=os.listdir(os.path.join(root,d))
-            cols= len(files) + 2
+            output_cols= len(files) + 2
             #columns_reported = ['origin', 'dest']
             #rows and cols for main array 
             if files:
                 data = np.genfromtxt(os.path.join(root, d, files[0]), delimiter=',', dtype=int)
-                rows=len(data)-1
-                initial_rows = rows
+                input_cols=data[0][-1]
+                input_rows=len(data)-1        #as the data would have it
+                initial_rows = input_rows     #remember this for posterity
+                rows=initial_rows             #this may change with large directories
                 
             #can we make a big enough array (depends on the computer)?
             try:
-                npa=np.zeros((rows**2, cols), dtype=int)
+                npa=np.zeros((input_rows*input_cols, output_cols), dtype=int)
             except:
                 #nope.  Let's see what we *can* do.
-                start_row=1
-                rows = find_max_rows(rows, cols)
+                
+                rows = find_max_rows(output_cols)
 
             #this is an override to facilitate testing - not used in practice
             if test_max_rows:
@@ -75,12 +77,11 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
             
             
             while rows_so_far < initial_rows:           
-                #npa=np.zeros((rows**2, cols), dtype=int)   #all zero arr
                 
                 columns_reported = ['origin', 'dest']
                 
-                npa=np.zeros((rows*cols, cols), dtype=int)   #all zero arr
-                od = make_OD_array(rows, cols=cols)
+                npa=np.zeros((rows*input_cols, output_cols), dtype=int)   #all zero arr
+                od = make_OD_array(rows, cols=input_cols)
                 #replace the first two cols with O D values
                 npa[:,0]=od[0]
                 npa[:,1]=od[1]              

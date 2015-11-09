@@ -94,4 +94,8 @@ def get_base_fn(fn)     :
     #
     return fn[:fn.find('_data')]
 
+#w = get_window(1179, 4200,1)
+#next(w)
+#x=1
+
         

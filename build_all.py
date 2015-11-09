@@ -26,7 +26,7 @@ DB='naacp'
 #log file name - lives in the script directory
 LOG_FILE='loader.log'
 #set to 'WARN' to capure only data loading issues.  'INFO' is verbose.
-LOG_LEVEL='INFO'   
+LOG_LEVEL='DEBUG'   
 
 #**** login credentials need to be updated in database.py ***
 
