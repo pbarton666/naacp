@@ -1,5 +1,3 @@
-
-
 import logging
 import logging.handlers
 
@@ -7,7 +5,7 @@ import build_flat_files
 import build_tables
 import describe_db
 
-#*******change these to your own settings (dirs must exist)***
+#*******change these to your own settings **************
 
 #path to the data as downloaded from DropBox
 #NB: I'm using shortened versions of the scenario directory names
