@@ -85,6 +85,8 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
                 sql = sql[:-2] + ');' #
                 curs.execute(sql)
                 conn.commit()  
+                logger.info('Created table {}'.format(t_name))
+                logger.info('Columns: {}'.format(db_cols))
                 
                 #try to load the file with COPY
                 logger.info('Loading flat file {} to the database with COPY'.format(t_name))

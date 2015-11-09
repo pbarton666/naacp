@@ -10,16 +10,14 @@ import logging.handlers
 #NB: I'm using shortened versions of the scenario directory names
 #    as these are part of the column names in the DB
 
-#input, output directories
-dirs = [{'data': '/home/pat/mary/NoRed-YesHwy',  'scratch': '/home/pat/mary/flat_NoRed-YesHwy'},
-        {'data': '/home/pat/mary/NoRed-NoHwy',   'scratch': '/home/pat/mary/flat_NoRed-NoHwy'},
-        {'data': '/home/pat/mary/YesRed-YesHwy', 'scratch': '/home/pat/mary/flat_YesRed-YesHwy'},
-        {'data': '/home/pat/mary/YesRed-NoHwy',  'scratch': '/home/pat/mary/flat_YesRed-NoHwy'},
+#Data directories and output directories
+dirs = [#{'data': '/home/pat/mary/NoRed-YesHwy',  'scratch': '/home/pat/mary/flat_NoRed-YesHwy'},
+        #{'data': '/home/pat/mary/NoRed-NoHwy',   'scratch': '/home/pat/mary/flat_NoRed-NoHwy'},
+        #{'data': '/home/pat/mary/YesRed-YesHwy', 'scratch': '/home/pat/mary/flat_YesRed-YesHwy'},
+        #{'data': '/home/pat/mary/YesRed-NoHwy',  'scratch': '/home/pat/mary/flat_YesRed-NoHwy'},
+        {'data': '/home/pat/mary/test',  'scratch': '/home/pat/mary/flat_test'},
         ]
 
-DATA_DIR='/home/pat/mary/NoRed-YesHwy'
-#a scratch directory for the 'vectorized' flat files
-OUT_DIR = '/home/pat/mary/flat_NoRed-YesHwy'
 #database name
 DB='naacp'
 #log file name - lives in the script directory
@@ -50,7 +48,7 @@ logger.setLevel(LOG_LEVEL)
 if __name__=='__main__':
     'main execution start'
     #leave these statements here - logging info imported from settings
-    for d in dirs:
+    for ix, d in enumerate(dirs, start=1):
         data_dir=d['data']
         scratch_dir = d['scratch']
         msg='Data loading from {} \n...to database {}. \n...Logging to {} \n'
@@ -59,6 +57,7 @@ if __name__=='__main__':
         build_flat_files.build_flat_files(data_dir, scratch_dir)
         #create tables from header info in tables, then load data
         build_tables.build_tables(db=DB, pdir = scratch_dir, drop_old=True)
-        logger.info("*******************************")
-        logger.info("Beginning new scenario")
-        logger.info("*******************************")
+        if ix != len(dirs):
+            logger.info("*******************************")
+            logger.info("Beginning new scenario")
+            logger.info("*******************************")

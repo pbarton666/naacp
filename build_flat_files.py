@@ -83,9 +83,14 @@ def build_flat_files(in_dir, out_dir):
 
             #save the file 
             data_fn=os.path.join(root, out_dir, table_name + "_data.csv")
-            #print('data:', data_fn)            
-            np.savetxt(data_fn, npa, delimiter=',', header="|".join(columns_reported), fmt="%u")
-            #(npa)
+            msg='attempting to save flat file {} for info in {}'
+            logger.info(msg.format(data_fn, os.path.join(root,d)))
+            try:
+                np.savetxt(data_fn, npa, delimiter=',', header="|".join(columns_reported), fmt="%u")
+            except:
+                msg='Could not save file {} file {} for info in {}'
+                logger.warning(msg.format(data_fn, os.path.join(root,d)))
+            logger.info('success')
             logger.info('Done.  File saved as {}'.format(data_fn))
 
             

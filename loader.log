@@ -3017,3 +3017,367 @@
 2015-11-08 16:08:18 - INFO - build_flat_files.py:86 - Done.  File saved as /home/pat/mary/flat_NoRed-YesHwy/nored-yeshwy_hwy_od_data.csv
 2015-11-08 16:08:18 - INFO - build_flat_files.py:31 - creating np array from Loaded_HWY_OD_TimeCost
 2015-11-08 16:08:27 - INFO - build_flat_files.py:55 - working on file: LOADED_HWY_DISTANCE_HOV_AM.csv
+2015-11-08 16:17:45 - INFO - build_flat_files.py:34 - creating np array from my_sub_dir_1
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table100
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table200
+2015-11-08 16:17:45 - INFO - build_flat_files.py:89 - Done.  File saved as /tmp/tmp9ycrim_odir_/tmpu3m98y_tdir__my_sub_dir_1_data.csv
+2015-11-08 16:17:45 - INFO - build_flat_files.py:34 - creating np array from my_sub_dir_2
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table300
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table400
+2015-11-08 16:17:45 - INFO - build_flat_files.py:89 - Done.  File saved as /tmp/tmp9ycrim_odir_/tmpu3m98y_tdir__my_sub_dir_2_data.csv
+2015-11-08 16:17:45 - INFO - build_flat_files.py:34 - creating np array from my_sub_dir_1
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table100
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table200
+2015-11-08 16:17:45 - INFO - build_flat_files.py:89 - Done.  File saved as /tmp/tmposp7il_odir_/tmpwjr9pr_tdir__my_sub_dir_1_data.csv
+2015-11-08 16:17:45 - INFO - build_flat_files.py:34 - creating np array from my_sub_dir_2
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table300
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table400
+2015-11-08 16:17:45 - INFO - build_flat_files.py:89 - Done.  File saved as /tmp/tmposp7il_odir_/tmpwjr9pr_tdir__my_sub_dir_2_data.csv
+2015-11-08 16:17:45 - INFO - build_tables.py:64 - dropping table tmpwjr9pr_tdir__my_sub_dir_1
+2015-11-08 16:17:45 - INFO - build_tables.py:68 - dropping table tmpwjr9pr_tdir__my_sub_dir_1
+2015-11-08 16:17:45 - INFO - build_tables.py:70 - creating new table tmpwjr9pr_tdir__my_sub_dir_1
+2015-11-08 16:17:45 - INFO - build_tables.py:90 - Loading flat file tmpwjr9pr_tdir__my_sub_dir_1 to the database with COPY
+2015-11-08 16:17:45 - INFO - build_tables.py:97 - success.
+2015-11-08 16:17:45 - INFO - build_tables.py:64 - dropping table tmpwjr9pr_tdir__my_sub_dir_2
+2015-11-08 16:17:45 - INFO - build_tables.py:68 - dropping table tmpwjr9pr_tdir__my_sub_dir_2
+2015-11-08 16:17:45 - INFO - build_tables.py:70 - creating new table tmpwjr9pr_tdir__my_sub_dir_2
+2015-11-08 16:17:45 - INFO - build_tables.py:90 - Loading flat file tmpwjr9pr_tdir__my_sub_dir_2 to the database with COPY
+2015-11-08 16:17:45 - INFO - build_tables.py:97 - success.
+2015-11-08 16:17:45 - INFO - build_flat_files.py:34 - creating np array from my_sub_dir_1
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table100
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table200
+2015-11-08 16:17:45 - INFO - build_flat_files.py:89 - Done.  File saved as /tmp/tmpyhg7c0_odir_/tmpppytpj_tdir__my_sub_dir_1_data.csv
+2015-11-08 16:17:45 - INFO - build_flat_files.py:34 - creating np array from my_sub_dir_2
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table300
+2015-11-08 16:17:45 - INFO - build_flat_files.py:58 - working on file: TRANS_OD_table400
+2015-11-08 16:17:45 - INFO - build_flat_files.py:89 - Done.  File saved as /tmp/tmpyhg7c0_odir_/tmpppytpj_tdir__my_sub_dir_2_data.csv
+2015-11-08 16:17:45 - INFO - build_tables.py:115 - dropping table tmpppytpj_tdir__my_sub_dir_1
+2015-11-08 16:17:45 - INFO - build_tables.py:133 - Loading flat file tmpppytpj_tdir__my_sub_dir_1 to the database with INSERTS
+2015-11-08 16:17:45 - INFO - build_tables.py:147 - success.
+2015-11-08 16:18:04 - INFO - build_flat_files.py:34 - creating np array from HWY_OD_TimeCost
+2015-11-08 16:18:06 - INFO - build_flat_files.py:58 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 16:18:09 - INFO - build_flat_files.py:58 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 16:18:10 - INFO - build_flat_files.py:58 - working on file: HWY_OP_HOV_TOLL.csv
+2015-11-08 16:18:12 - INFO - build_flat_files.py:58 - working on file: HWY_OP_SOV_DISTANCE.csv
+2015-11-08 16:18:14 - INFO - build_flat_files.py:58 - working on file: HWY_OP_SOV_TIME.csv
+2015-11-08 16:18:16 - INFO - build_flat_files.py:58 - working on file: HWY_OP_SOV_TOLL.csv
+2015-11-08 16:18:18 - INFO - build_flat_files.py:58 - working on file: HWY_PK_HOV_DISTANCE.csv
+2015-11-08 16:18:20 - INFO - build_flat_files.py:58 - working on file: HWY_PK_HOV_TIME.csv
+2015-11-08 16:18:22 - INFO - build_flat_files.py:58 - working on file: HWY_PK_HOV_TOLL.csv
+2015-11-08 16:18:23 - INFO - build_flat_files.py:58 - working on file: HWY_PK_SOV_DISTANCE.csv
+2015-11-08 16:18:25 - INFO - build_flat_files.py:58 - working on file: HWY_PK_SOV_TIME.csv
+2015-11-08 16:18:27 - INFO - build_flat_files.py:58 - working on file: HWY_PK_SOV_TOLL.csv
+2015-11-08 16:18:43 - INFO - build_flat_files.py:89 - Done.  File saved as /home/pat/mary/flat_NoRed-YesHwy/nored-yeshwy_hwy_od_data.csv
+2015-11-08 16:18:43 - INFO - build_flat_files.py:34 - creating np array from Loaded_HWY_OD_TimeCost
+2015-11-08 16:18:46 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_DISTANCE_HOV_AM.csv
+2015-11-08 16:18:48 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_DISTANCE_HOV_MD.csv
+2015-11-08 16:18:50 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_DISTANCE_HOV_NT.csv
+2015-11-08 16:18:52 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_DISTANCE_HOV_PM.csv
+2015-11-08 16:18:53 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_DISTANCE_SOV_AM.csv
+2015-11-08 16:18:55 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_DISTANCE_SOV_MD.csv
+2015-11-08 16:18:57 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_DISTANCE_SOV_NT.csv
+2015-11-08 16:18:59 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_DISTANCE_SOV_PM.csv
+2015-11-08 16:19:01 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TIME_HOV_AM.csv
+2015-11-08 16:19:03 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TIME_HOV_MD.csv
+2015-11-08 16:19:05 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TIME_HOV_NT.csv
+2015-11-08 16:19:07 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TIME_HOV_PM.csv
+2015-11-08 16:19:09 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TIME_SOV_AM.csv
+2015-11-08 16:19:11 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TIME_SOV_MD.csv
+2015-11-08 16:19:14 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TIME_SOV_NT.csv
+2015-11-08 16:19:16 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TIME_SOV_PM.csv
+2015-11-08 16:19:18 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TOLL_HOV_AM.csv
+2015-11-08 16:19:19 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TOLL_HOV_MD.csv
+2015-11-08 16:19:21 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TOLL_HOV_NT.csv
+2015-11-08 16:19:23 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TOLL_HOV_PM.csv
+2015-11-08 16:19:25 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TOLL_SOV_AM.csv
+2015-11-08 16:19:26 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TOLL_SOV_MD.csv
+2015-11-08 16:19:28 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TOLL_SOV_NT.csv
+2015-11-08 16:19:30 - INFO - build_flat_files.py:58 - working on file: LOADED_HWY_TOLL_SOV_PM.csv
+2015-11-08 16:19:48 - INFO - build_flat_files.py:89 - Done.  File saved as /home/pat/mary/flat_NoRed-YesHwy/nored-yeshwy_loaded_hwy_od_timecost_data.csv
+2015-11-08 16:19:48 - INFO - build_flat_files.py:34 - creating np array from ModeChoice_OD_byPurposeIncomeMode
+2015-11-08 16:19:53 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_DA.csv
+2015-11-08 16:19:55 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_DBus.csv
+2015-11-08 16:19:56 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_DCRail.csv
+2015-11-08 16:19:58 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_DRail.csv
+2015-11-08 16:20:00 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_DexpBus.csv
+2015-11-08 16:20:01 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc1_DexpBus.csv - all 0s ***
+2015-11-08 16:20:01 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_SR2.csv
+2015-11-08 16:20:03 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_SR3.csv
+2015-11-08 16:20:05 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_WBus.csv
+2015-11-08 16:20:07 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_WCRail.csv
+2015-11-08 16:20:08 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_WRail.csv
+2015-11-08 16:20:10 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_WexpBus.csv
+2015-11-08 16:20:12 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc1_WexpBus.csv - all 0s ***
+2015-11-08 16:20:12 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_DA.csv
+2015-11-08 16:20:13 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_DBus.csv
+2015-11-08 16:20:15 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_DCRail.csv
+2015-11-08 16:20:17 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_DRail.csv
+2015-11-08 16:20:19 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_DexpBus.csv
+2015-11-08 16:20:20 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc2_DexpBus.csv - all 0s ***
+2015-11-08 16:20:20 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_SR2.csv
+2015-11-08 16:20:22 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_SR3.csv
+2015-11-08 16:20:24 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_WBus.csv
+2015-11-08 16:20:26 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_WCRail.csv
+2015-11-08 16:20:27 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_WRail.csv
+2015-11-08 16:20:29 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc2_WexpBus.csv
+2015-11-08 16:20:31 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc2_WexpBus.csv - all 0s ***
+2015-11-08 16:20:31 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_DA.csv
+2015-11-08 16:20:33 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_DBus.csv
+2015-11-08 16:20:35 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_DCRail.csv
+2015-11-08 16:20:36 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_DRail.csv
+2015-11-08 16:20:38 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_DexpBus.csv
+2015-11-08 16:20:40 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc3_DexpBus.csv - all 0s ***
+2015-11-08 16:20:40 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_SR2.csv
+2015-11-08 16:20:42 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_SR3.csv
+2015-11-08 16:20:44 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_WBus.csv
+2015-11-08 16:20:45 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_WCRail.csv
+2015-11-08 16:20:47 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_WRail.csv
+2015-11-08 16:20:49 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc3_WexpBus.csv
+2015-11-08 16:20:50 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc3_WexpBus.csv - all 0s ***
+2015-11-08 16:20:50 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_DA.csv
+2015-11-08 16:20:52 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_DBus.csv
+2015-11-08 16:20:54 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_DCRail.csv
+2015-11-08 16:20:56 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_DRail.csv
+2015-11-08 16:20:57 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_DexpBus.csv
+2015-11-08 16:20:59 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc4_DexpBus.csv - all 0s ***
+2015-11-08 16:20:59 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_SR2.csv
+2015-11-08 16:21:01 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_SR3.csv
+2015-11-08 16:21:02 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_WBus.csv
+2015-11-08 16:21:04 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_WCRail.csv
+2015-11-08 16:21:06 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_WRail.csv
+2015-11-08 16:21:08 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc4_WexpBus.csv
+2015-11-08 16:21:10 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc4_WexpBus.csv - all 0s ***
+2015-11-08 16:21:10 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_DA.csv
+2015-11-08 16:21:11 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_DBus.csv
+2015-11-08 16:21:13 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_DCRail.csv
+2015-11-08 16:21:15 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_DRail.csv
+2015-11-08 16:21:17 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_DexpBus.csv
+2015-11-08 16:21:18 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc5_DexpBus.csv - all 0s ***
+2015-11-08 16:21:18 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_SR2.csv
+2015-11-08 16:21:20 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_SR3.csv
+2015-11-08 16:21:22 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_WBus.csv
+2015-11-08 16:21:24 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_WCRail.csv
+2015-11-08 16:21:25 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_WRail.csv
+2015-11-08 16:21:27 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc5_WexpBus.csv
+2015-11-08 16:21:29 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBO_Inc5_WexpBus.csv - all 0s ***
+2015-11-08 16:21:29 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_DA.csv
+2015-11-08 16:21:30 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_DBus.csv
+2015-11-08 16:21:32 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_DCRail.csv
+2015-11-08 16:21:34 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_DRail.csv
+2015-11-08 16:21:36 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_DexpBus.csv
+2015-11-08 16:21:37 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc1_DexpBus.csv - all 0s ***
+2015-11-08 16:21:37 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_SR2.csv
+2015-11-08 16:21:39 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_SR3.csv
+2015-11-08 16:21:41 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_WBus.csv
+2015-11-08 16:21:42 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_WCRail.csv
+2015-11-08 16:21:44 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_WRail.csv
+2015-11-08 16:21:46 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc1_WexpBus.csv
+2015-11-08 16:21:48 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc1_WexpBus.csv - all 0s ***
+2015-11-08 16:21:48 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_DA.csv
+2015-11-08 16:21:49 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_DBus.csv
+2015-11-08 16:21:51 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_DCRail.csv
+2015-11-08 16:21:53 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_DRail.csv
+2015-11-08 16:21:54 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_DexpBus.csv
+2015-11-08 16:21:56 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc2_DexpBus.csv - all 0s ***
+2015-11-08 16:21:56 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_SR2.csv
+2015-11-08 16:21:58 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_SR3.csv
+2015-11-08 16:22:00 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_WBus.csv
+2015-11-08 16:22:01 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_WCRail.csv
+2015-11-08 16:22:03 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_WRail.csv
+2015-11-08 16:22:05 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc2_WexpBus.csv
+2015-11-08 16:22:06 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc2_WexpBus.csv - all 0s ***
+2015-11-08 16:22:06 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_DA.csv
+2015-11-08 16:22:08 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_DBus.csv
+2015-11-08 16:22:10 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_DCRail.csv
+2015-11-08 16:22:12 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_DRail.csv
+2015-11-08 16:22:13 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_DexpBus.csv
+2015-11-08 16:22:15 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc3_DexpBus.csv - all 0s ***
+2015-11-08 16:22:15 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_SR2.csv
+2015-11-08 16:22:17 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_SR3.csv
+2015-11-08 16:22:18 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_WBus.csv
+2015-11-08 16:22:20 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_WCRail.csv
+2015-11-08 16:22:22 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_WRail.csv
+2015-11-08 16:22:23 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc3_WexpBus.csv
+2015-11-08 16:22:25 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc3_WexpBus.csv - all 0s ***
+2015-11-08 16:22:25 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_DA.csv
+2015-11-08 16:22:27 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_DBus.csv
+2015-11-08 16:22:29 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_DCRail.csv
+2015-11-08 16:22:30 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_DRail.csv
+2015-11-08 16:22:32 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_DexpBus.csv
+2015-11-08 16:22:34 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc4_DexpBus.csv - all 0s ***
+2015-11-08 16:22:34 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_SR2.csv
+2015-11-08 16:22:35 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_SR3.csv
+2015-11-08 16:22:37 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_WBus.csv
+2015-11-08 16:22:39 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_WCRail.csv
+2015-11-08 16:22:41 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_WRail.csv
+2015-11-08 16:22:42 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc4_WexpBus.csv
+2015-11-08 16:22:44 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc4_WexpBus.csv - all 0s ***
+2015-11-08 16:22:44 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_DA.csv
+2015-11-08 16:22:46 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_DBus.csv
+2015-11-08 16:22:47 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_DCRail.csv
+2015-11-08 16:22:49 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_DRail.csv
+2015-11-08 16:22:51 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_DexpBus.csv
+2015-11-08 16:22:53 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc5_DexpBus.csv - all 0s ***
+2015-11-08 16:22:53 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_SR2.csv
+2015-11-08 16:22:54 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_SR3.csv
+2015-11-08 16:22:56 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_WBus.csv
+2015-11-08 16:22:58 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_WCRail.csv
+2015-11-08 16:22:59 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_WRail.csv
+2015-11-08 16:23:01 - INFO - build_flat_files.py:58 - working on file: MODE_HBS_Inc5_WexpBus.csv
+2015-11-08 16:23:03 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_HBS_Inc5_WexpBus.csv - all 0s ***
+2015-11-08 16:23:03 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_DA.csv
+2015-11-08 16:23:04 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_DBus.csv
+2015-11-08 16:23:06 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_DCRail.csv
+2015-11-08 16:23:08 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_DRail.csv
+2015-11-08 16:23:10 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_DexpBus.csv
+2015-11-08 16:23:11 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_SR2.csv
+2015-11-08 16:23:13 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_SR3.csv
+2015-11-08 16:23:15 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_WBus.csv
+2015-11-08 16:23:16 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_WCRail.csv
+2015-11-08 16:23:18 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_WRail.csv
+2015-11-08 16:23:20 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc1_WexpBus.csv
+2015-11-08 16:23:22 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_DA.csv
+2015-11-08 16:23:23 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_DBus.csv
+2015-11-08 16:23:25 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_DCRail.csv
+2015-11-08 16:23:27 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_DRail.csv
+2015-11-08 16:23:28 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_DexpBus.csv
+2015-11-08 16:23:30 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_SR2.csv
+2015-11-08 16:23:32 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_SR3.csv
+2015-11-08 16:23:34 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_WBus.csv
+2015-11-08 16:23:35 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_WCRail.csv
+2015-11-08 16:23:37 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_WRail.csv
+2015-11-08 16:23:39 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc2_WexpBus.csv
+2015-11-08 16:23:40 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_DA.csv
+2015-11-08 16:23:42 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_DBus.csv
+2015-11-08 16:23:44 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_DCRail.csv
+2015-11-08 16:23:45 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_DRail.csv
+2015-11-08 16:23:47 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_DexpBus.csv
+2015-11-08 16:23:49 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_SR2.csv
+2015-11-08 16:23:51 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_SR3.csv
+2015-11-08 16:23:52 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_WBus.csv
+2015-11-08 16:23:54 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_WCRail.csv
+2015-11-08 16:23:56 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_WRail.csv
+2015-11-08 16:23:57 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc3_WexpBus.csv
+2015-11-08 16:23:59 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_DA.csv
+2015-11-08 16:24:01 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_DBus.csv
+2015-11-08 16:24:03 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_DCRail.csv
+2015-11-08 16:24:04 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_DRail.csv
+2015-11-08 16:24:06 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_DexpBus.csv
+2015-11-08 16:24:08 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_SR2.csv
+2015-11-08 16:24:09 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_SR3.csv
+2015-11-08 16:24:11 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_WBus.csv
+2015-11-08 16:24:13 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_WCRail.csv
+2015-11-08 16:24:15 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_WRail.csv
+2015-11-08 16:24:16 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc4_WexpBus.csv
+2015-11-08 16:24:18 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_DA.csv
+2015-11-08 16:24:20 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_DBus.csv
+2015-11-08 16:24:22 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_DCRail.csv
+2015-11-08 16:24:23 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_DRail.csv
+2015-11-08 16:24:25 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_DexpBus.csv
+2015-11-08 16:24:27 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_SR2.csv
+2015-11-08 16:24:28 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_SR3.csv
+2015-11-08 16:24:30 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_WBus.csv
+2015-11-08 16:24:32 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_WCRail.csv
+2015-11-08 16:24:34 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_WRail.csv
+2015-11-08 16:24:35 - INFO - build_flat_files.py:58 - working on file: MODE_HBW_Inc5_WexpBus.csv
+2015-11-08 16:24:37 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_DA.csv
+2015-11-08 16:24:39 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_DBus.csv
+2015-11-08 16:24:41 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_DCRail.csv
+2015-11-08 16:24:42 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_DRail.csv
+2015-11-08 16:24:44 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_DexpBus.csv
+2015-11-08 16:24:46 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_NHBW_DexpBus.csv - all 0s ***
+2015-11-08 16:24:46 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_SR2.csv
+2015-11-08 16:24:47 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_SR3.csv
+2015-11-08 16:24:49 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_WBus.csv
+2015-11-08 16:24:51 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_WCRail.csv
+2015-11-08 16:24:52 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_WRail.csv
+2015-11-08 16:24:54 - INFO - build_flat_files.py:58 - working on file: MODE_NHBW_WexpBus.csv
+2015-11-08 16:24:56 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_NHBW_WexpBus.csv - all 0s ***
+2015-11-08 16:24:56 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_DA.csv
+2015-11-08 16:24:57 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_DBus.csv
+2015-11-08 16:24:59 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_DCRail.csv
+2015-11-08 16:25:01 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_DRail.csv
+2015-11-08 16:25:02 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_DexpBus.csv
+2015-11-08 16:25:04 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_OBO_DexpBus.csv - all 0s ***
+2015-11-08 16:25:04 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_SR2.csv
+2015-11-08 16:25:06 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_SR3.csv
+2015-11-08 16:25:07 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_WBus.csv
+2015-11-08 16:25:09 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_WCRail.csv
+2015-11-08 16:25:11 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_WRail.csv
+2015-11-08 16:25:12 - INFO - build_flat_files.py:58 - working on file: MODE_OBO_WexpBus.csv
+2015-11-08 16:25:14 - WARNING - build_flat_files.py:65 - **** WARN:  Did not load ModeChoice_OD_byPurposeIncomeMode/MODE_OBO_WexpBus.csv - all 0s ***
+2015-11-08 16:36:58 - INFO - build_flat_files.py:34 - creating np array from HWY_OD_TimeCost
+2015-11-08 16:37:09 - INFO - build_flat_files.py:58 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 16:37:15 - INFO - build_flat_files.py:58 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 16:37:32 - INFO - build_flat_files.py:89 - Done.  File saved as /home/pat/mary/flat_test/test_hwy_od_data.csv
+2015-11-08 16:37:32 - INFO - build_flat_files.py:34 - creating np array from ModeChoice_OD_byPurposeIncomeMode
+2015-11-08 16:37:40 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_DA.csv
+2015-11-08 16:37:46 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_DBus.csv
+2015-11-08 16:47:24 - INFO - build_flat_files.py:34 - creating np array from HWY_OD_TimeCost
+2015-11-08 16:47:32 - INFO - build_flat_files.py:58 - working on file: HWY_OP_HOV_DISTANCE.csv
+2015-11-08 16:47:38 - INFO - build_flat_files.py:58 - working on file: HWY_OP_HOV_TIME.csv
+2015-11-08 16:47:45 - INFO - build_flat_files.py:86 - attempting to save flat file /home/pat/mary/flat_test/test_hwy_od_data.csv for info in HWY_OD_TimeCost
+2015-11-08 16:47:58 - INFO - build_flat_files.py:88 - success
+2015-11-08 16:47:58 - INFO - build_flat_files.py:90 - Done.  File saved as /home/pat/mary/flat_test/test_hwy_od_data.csv
+2015-11-08 16:47:58 - INFO - build_flat_files.py:34 - creating np array from ModeChoice_OD_byPurposeIncomeMode
+2015-11-08 16:48:06 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_DA.csv
+2015-11-08 16:48:11 - INFO - build_flat_files.py:58 - working on file: MODE_HBO_Inc1_DBus.csv
+2015-11-08 16:48:18 - INFO - build_flat_files.py:86 - attempting to save flat file /home/pat/mary/flat_test/test_mode_choice_od_data.csv for info in ModeChoice_OD_byPurposeIncomeMode
+2015-11-08 16:48:28 - INFO - build_flat_files.py:88 - success
+2015-11-08 16:48:28 - INFO - build_flat_files.py:90 - Done.  File saved as /home/pat/mary/flat_test/test_mode_choice_od_data.csv
+2015-11-08 16:48:28 - INFO - build_flat_files.py:34 - creating np array from PersonTrip_OD_byPurposeIncome
+2015-11-08 16:48:35 - INFO - build_flat_files.py:58 - working on file: Trips_HBO_Inc1.csv
+2015-11-08 16:48:41 - INFO - build_flat_files.py:58 - working on file: Trips_HBO_Inc2.csv
+2015-11-08 16:48:47 - INFO - build_flat_files.py:86 - attempting to save flat file /home/pat/mary/flat_test/test_person_trip_od_data.csv for info in PersonTrip_OD_byPurposeIncome
+2015-11-08 16:48:57 - INFO - build_flat_files.py:88 - success
+2015-11-08 16:48:57 - INFO - build_flat_files.py:90 - Done.  File saved as /home/pat/mary/flat_test/test_person_trip_od_data.csv
+2015-11-08 16:48:57 - INFO - build_flat_files.py:34 - creating np array from TOD_OD_byPurposeIncomeTODOccupancy
+2015-11-08 16:49:05 - INFO - build_flat_files.py:58 - working on file: TOD_HBO_Inc1_AM_HOV2.csv
+2015-11-08 16:49:11 - INFO - build_flat_files.py:58 - working on file: TOD_HBO_Inc1_AM_HOV3.csv
+2015-11-08 16:49:17 - INFO - build_flat_files.py:86 - attempting to save flat file /home/pat/mary/flat_test/test_tod_od_data.csv for info in TOD_OD_byPurposeIncomeTODOccupancy
+2015-11-08 16:49:27 - INFO - build_flat_files.py:88 - success
+2015-11-08 16:49:27 - INFO - build_flat_files.py:90 - Done.  File saved as /home/pat/mary/flat_test/test_tod_od_data.csv
+2015-11-08 16:49:27 - INFO - build_flat_files.py:34 - creating np array from TRANSIT_OD_TimeCost
+2015-11-08 16:49:35 - INFO - build_flat_files.py:58 - working on file: TRANSIT_OP_DBus_AutoDistance.csv
+2015-11-08 16:49:41 - INFO - build_flat_files.py:58 - working on file: TRANSIT_OP_DBus_AutoTime.csv
+2015-11-08 16:49:47 - INFO - build_flat_files.py:86 - attempting to save flat file /home/pat/mary/flat_test/test_transit_od_timecost_data.csv for info in TRANSIT_OD_TimeCost
+2015-11-08 16:49:59 - INFO - build_flat_files.py:88 - success
+2015-11-08 16:49:59 - INFO - build_flat_files.py:90 - Done.  File saved as /home/pat/mary/flat_test/test_transit_od_timecost_data.csv
+2015-11-08 16:50:00 - INFO - build_tables.py:64 - dropping table test_hwy_od
+2015-11-08 16:50:00 - INFO - build_tables.py:68 - dropping table test_hwy_od
+2015-11-08 16:50:00 - INFO - build_tables.py:70 - creating new table test_hwy_od
+2015-11-08 16:50:00 - INFO - build_tables.py:88 - Created table test_hwy_od
+2015-11-08 16:50:00 - INFO - build_tables.py:89 - Columns: ['origin', 'dest', 'hov_distance', 'hov_time']
+2015-11-08 16:50:00 - INFO - build_tables.py:92 - Loading flat file test_hwy_od to the database with COPY
+2015-11-08 16:50:06 - INFO - build_tables.py:99 - success.
+2015-11-08 16:50:06 - INFO - build_tables.py:64 - dropping table test_mode_choice_od
+2015-11-08 16:50:06 - INFO - build_tables.py:68 - dropping table test_mode_choice_od
+2015-11-08 16:50:06 - INFO - build_tables.py:70 - creating new table test_mode_choice_od
+2015-11-08 16:50:06 - INFO - build_tables.py:88 - Created table test_mode_choice_od
+2015-11-08 16:50:06 - INFO - build_tables.py:89 - Columns: ['origin', 'dest', 'inc1_da', 'inc1_dbus']
+2015-11-08 16:50:06 - INFO - build_tables.py:92 - Loading flat file test_mode_choice_od to the database with COPY
+2015-11-08 16:50:12 - INFO - build_tables.py:99 - success.
+2015-11-08 16:50:12 - INFO - build_tables.py:64 - dropping table test_person_trip_od
+2015-11-08 16:50:13 - INFO - build_tables.py:68 - dropping table test_person_trip_od
+2015-11-08 16:50:13 - INFO - build_tables.py:70 - creating new table test_person_trip_od
+2015-11-08 16:50:13 - INFO - build_tables.py:88 - Created table test_person_trip_od
+2015-11-08 16:50:13 - INFO - build_tables.py:89 - Columns: ['origin', 'dest', 'inc1', 'inc2']
+2015-11-08 16:50:13 - INFO - build_tables.py:92 - Loading flat file test_person_trip_od to the database with COPY
+2015-11-08 16:50:19 - INFO - build_tables.py:99 - success.
+2015-11-08 16:50:19 - INFO - build_tables.py:64 - dropping table test_tod_od
+2015-11-08 16:50:19 - INFO - build_tables.py:68 - dropping table test_tod_od
+2015-11-08 16:50:19 - INFO - build_tables.py:70 - creating new table test_tod_od
+2015-11-08 16:50:19 - INFO - build_tables.py:88 - Created table test_tod_od
+2015-11-08 16:50:19 - INFO - build_tables.py:89 - Columns: ['origin', 'dest', 'inc1_am_hov2', 'inc1_am_hov3']
+2015-11-08 16:50:19 - INFO - build_tables.py:92 - Loading flat file test_tod_od to the database with COPY
+2015-11-08 16:50:24 - INFO - build_tables.py:99 - success.
+2015-11-08 16:50:24 - INFO - build_tables.py:64 - dropping table test_transit_od_timecost
+2015-11-08 16:50:24 - INFO - build_tables.py:68 - dropping table test_transit_od_timecost
+2015-11-08 16:50:24 - INFO - build_tables.py:70 - creating new table test_transit_od_timecost
+2015-11-08 16:50:24 - INFO - build_tables.py:88 - Created table test_transit_od_timecost
+2015-11-08 16:50:24 - INFO - build_tables.py:89 - Columns: ['origin', 'dest', 'dbus_autodistance', 'dbus_autotime']
+2015-11-08 16:50:24 - INFO - build_tables.py:92 - Loading flat file test_transit_od_timecost to the database with COPY
+2015-11-08 16:50:29 - INFO - build_tables.py:99 - success.
+2015-11-08 16:50:29 - INFO - build_all.py:63 - *******************************
+2015-11-08 16:50:29 - INFO - build_all.py:64 - Beginning new scenario
+2015-11-08 16:50:29 - INFO - build_all.py:65 - *******************************
