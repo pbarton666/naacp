@@ -11,7 +11,13 @@ import describe_db
 #NB: I'm using shortened versions of the scenario directory names
 #    as these are part of the names in the DB
 
-#Data directories and output directories
+#If rerunning build_all.py, please ensure that the scratch directories are empty - or, 
+#  if you want to retain the existing ones, that you provide new directory names.  
+#  The tables are built from all contents of the scratch directories.  More surgical 
+#  construction of the database tables is possible by running
+#  build_flat_files.build_flat_files() and build_tables.build_tables() separately.
+
+#Data directories and output directories.  
 dirs = [#{'data': '/home/pat/mary/NoRed-YesHwy',  'scratch': '/home/pat/mary/flat_NoRed-YesHwy'},
         {'data': '/home/pat/mary/NoRed-NoHwy',   'scratch': '/home/pat/mary/flat_NoRed-NoHwy'},
         {'data': '/home/pat/mary/YesRed-YesHwy', 'scratch': '/home/pat/mary/flat_YesRed-YesHwy'},
@@ -24,7 +30,7 @@ DB='naacp'
 #log file name - lives in the script directory
 LOG_FILE='db_loader.log'
 #set to 'WARN' to capure only data loading issues.  'DEBUG' is verbose.
-LOG_LEVEL='DEBUG'   
+LOG_LEVEL='INFO'   
 
 #**** login credentials need to be updated in database.py ***
 

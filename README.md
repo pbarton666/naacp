@@ -4,8 +4,8 @@ analytical scripts for naacp project
 build_all.py - Creates Psql data tables for all data matrices in target directory.
                Table names derived from subdirectory names; col names from file names.
                It's assumed that all data files will be in child directories of target.
-                  Data files will be non-sparse, all integers, comma-delimited, and
-                  have both row and column headers.  Rows are origins, cols are destinations.
+               Data files will be non-sparse, all integers, comma-delimited, and
+               have both row and column headers.  Rows are origins, cols are destinations.
                
 database.py  - Login credentials
 
