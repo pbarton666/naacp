@@ -116,6 +116,7 @@ class test(unittest.TestCase):
                     source=np.genfromtxt(source_file, delimiter=',', dtype=int)
                     source_val=source[-2][-2]                    
                     self.assertEqual(db_val,source_val )
+                    source=None
 
                     
             else:
