@@ -97,7 +97,7 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
                 logger.debug('Columns: {}'.format(db_cols))
                 
                 #try to load the file with COPY
-                logger.debug('Loading flat file {} to the database with COPY'.format(t_name))
+                logger.debug('Loading flat file {} to the database with COPY'.format(f))
                 fil.seek(0)
                 cols = '(' + ', '.join(db_cols) + ')'
                 sql="COPY {} {} FROM STDIN WITH CSV HEADER DELIMITER AS ','".format(t_name, cols) 
@@ -107,7 +107,7 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
                     logger.debug('success.')
                 except: 
                     #failed - probably due to memory issues; do it the slow way with INSERTs
-                    logger.debug('Nope.  COPY failed.')                    
+                    logger.WARN('Nope.  COPY failed for file {} trying to INSERT it.'.format(f))                    
                     load_with_insert(db=db, t_name=t_name, file=file, drop_old=drop_old)    
 
                   

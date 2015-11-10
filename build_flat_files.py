@@ -97,7 +97,10 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                 
                 this_window=next(windows)     #sets header and footer parts of file to skip
                 skip_header = this_window['skip_header']
-                skip_footer = this_window['skip_footer']
+                skip_footer = this_window['skip_footer']+1
+                ##TODO fix this 'last file indexing issue correctly
+                if skip_footer==1:
+                    skip_footer=0
                 
                 for f in files:
                     logger.debug('working on file: {}: beginning at line {}'.format(f, skip_header))
