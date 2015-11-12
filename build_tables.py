@@ -28,7 +28,7 @@ else:
     PARENT_DIR= '/home/pat/data/RL_analysis/raw_data_unzipped'
     DB='naacp'
 
-def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
+def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True, data_dir=None):
     """Builds database tables from flat files produced by build_flat_files.py.
        Assumes that column names are in a header row, in a specific format:
        #  <col name>|<col name>| (etc)
@@ -86,14 +86,21 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
                 for c in cols:
                     db_cols.append(c)                 
                     
-                #create a table based on the columns (assume all fields int)
+                #create a table based on the columns (assume all fields float)
                 sql='CREATE TABLE IF NOT EXISTS {} (\n'.format(t_name)
                 for col in db_cols:
-                    sql+='\t {} integer,\n'.format(col)
+                    sql+='\t {} float,\n'.format(col)
+                #for col in db_cols[:2]:   #origin, destination
+                    #sql+='\t {} integer,\n'.format(col)
+                #for col in db_cols[2:]:
+                    #if data_dir in utils_and_settings.integer_dirs:
+                        #sql+='\t {} integer,\n'.format(col)       
+                    #else:
+                        #sql+='\t {} float,\n'.format(col) 
                 sql = sql[:-2] + ');' #
                 curs.execute(sql)
                 conn.commit()  
-                logger.debug('Created table {}'.format(t_name))
+                logger.info('Created table {}'.format(t_name))
                 logger.debug('Columns: {}'.format(db_cols))
                 
                 #try to load the file with COPY
@@ -107,7 +114,7 @@ def build_tables(db = DB, pdir=PARENT_DIR, drop_old=True):
                     logger.debug('success.')
                 except: 
                     #failed - probably due to memory issues; do it the slow way with INSERTs
-                    logger.WARN('Nope.  COPY failed for file {} trying to INSERT it.'.format(f))                    
+                    logger.warning('Nope.  COPY failed for file {} trying to INSERT it.'.format(f))                    
                     load_with_insert(db=db, t_name=t_name, file=file, drop_old=drop_old)    
 
                   

@@ -11,6 +11,30 @@ dir_map = {'HWY_OD_TimeCost':                    'hwy_od',
 
 FN_DELIMITER = '_'  #info about matrices is stored in the file names themselves.
 
+integer_dirs= ['HWY_OD_TimeCost', 'ModeChoice_OD_byPurposeIncomeMode', 
+               'PersonTrip_OD_byPurposeIncome', 'TOD_OD_byPurposeIncomeTODOccupancy', 
+               'TRANSIT_OD_TimeCost']
+
+
+def make_names(dirs):
+
+    source_dirs = dirs
+    scenarios=set()
+    table_root=set()
+    tables=set()
+    for data_dir in source_dirs:  #'dirs' is the main dict "scenario level" directories
+        for root, dirs, files in os.walk(data_dir['data']):
+            scenario_name=root.split(os.path.sep)[-1]
+            for d in dirs:
+                
+                short_dir_name = os.path.join(scenario_name, d)
+                table_name = get_table_name_from_dir(short_dir_name)
+                table_root_name='_'.join(table_name.split('_')[1:])
+                scenarios.add(table_name.split('_')[0])
+                tables.add(table_name)
+                table_root.add(table_root_name)   
+    return (scenarios, table_root, tables)
+
 def name_to_flat(fn)        :
     "applies naming convention to flat file"
     return fn[:-4]+'_flat.csv'
