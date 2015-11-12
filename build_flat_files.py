@@ -55,7 +55,10 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
             #figure out which db table #this will be the last bit of the root + current           
             table_name=get_table_name_from_dir(os.path.join(root, d) )
             #what files?
-            files=os.listdir(os.path.join(root,d))
+            try:
+                files=os.listdir(os.path.join(root,d))
+            except:
+                pass
             output_cols= len(files) + 2
             #columns_reported = ['origin', 'dest']
             #rows and cols for main array 
@@ -72,17 +75,18 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                 continue
             
             try:
+                npa=None
                 npa=np.zeros((input_rows*input_cols, output_cols), dtype=dtype)
             except:
                 #nope.  Let's see what we *can* do.  First, provide some data to the user
                 error_info=[]
                 error_info.append('problem creating np array for {}'.format(os.path.join(root,d)))
                 msg='input_rows: {}  input_cols: {}  output_cols: {}'
-                error.info.append(msg.format(input_rows, input_cols, output_cols ))
+                error_info.append(msg.format(input_rows, input_cols, output_cols ))
                 logger.info(error_info)
                 
                 #                
-                rows = find_max_rows(input_columns, output_cols)
+                rows = find_max_rows(input_cols, output_cols)
                 logging.info('files in {} are too big for single load.  Doing it piecemeal'.format(d))
 
             #this is an override to facilitate testing - not used in practice
@@ -102,6 +106,7 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                     a=1
                 rows_needed = min(rows*input_cols, (initial_rows-rows_so_far)*input_cols)
                 #print('needed {}'.format(rows_needed))
+                npa=None
                 npa=np.zeros((rows_needed, output_cols), dtype=dtype)   #all zero arr
                 od = make_OD_array(rows, cols=input_cols, start_row=rows_so_far+1, max_row=initial_rows)
 
@@ -159,8 +164,8 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
                 try:
                     np.savetxt(data_fn, npa, delimiter=',', header="|".join(columns_reported), fmt="%s")
                 except:
-                    msg='Could not save file {}  for info in {}'
-                    logger.warning(msg.format(data_fn, d))
+                    msg='Could not save file {} in {}'
+                    logger.warning(msg.format(data_fn, os.path.join(root,d)))
                 logger.debug('success')
                 rows_so_far += rows
 

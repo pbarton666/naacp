@@ -19,11 +19,12 @@ import describe_db
 
 #Data directories and output directories.  
 dirs = [{'data': '/home/pat/mary/NoRed-YesHwy',  'scratch': '/home/pat/mary/flat_NoRed-YesHwy'},
-        #{'data': '/home/pat/mary/NoRed-NoHwy',   'scratch': '/home/pat/mary/flat_NoRed-NoHwy'},
-        #{'data': '/home/pat/mary/YesRed-YesHwy', 'scratch': '/home/pat/mary/flat_YesRed-YesHwy'},
-        #{'data': '/home/pat/mary/YesRed-NoHwy',  'scratch': '/home/pat/mary/flat_YesRed-NoHwy'},
+        {'data': '/home/pat/mary/NoRed-NoHwy',   'scratch': '/home/pat/mary/flat_NoRed-NoHwy'},
+        {'data': '/home/pat/mary/YesRed-YesHwy', 'scratch': '/home/pat/mary/flat_YesRed-YesHwy'},
+        {'data': '/home/pat/mary/YesRed-NoHwy',  'scratch': '/home/pat/mary/flat_YesRed-NoHwy'},
         {'data': '/home/pat/mary/Fares',  'scratch': '/home/pat/mary/flat_Fares'},
         # {'data': '/home/pat/mary/Test-NoRed-YesHwy',  'scratch': '/home/pat/mary/junkdir'},
+        #{'data': '/home/pat/mary/yesRedNoHwyTest', 'scratch': '/home/pat/mary/flat_YesRed-YesHwyx'}
         ]
 
 #database name
@@ -31,7 +32,7 @@ DB='naacp'
 #log file name - lives in the script directory
 LOG_FILE='db_loader.log'
 #set to 'WARN' to capure only data loading issues.  'DEBUG' is verbose.
-LOG_LEVEL='INFO'   
+LOG_LEVEL='DEBUG'   
 
 #**** login credentials need to be updated in database.py ***
 

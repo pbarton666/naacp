@@ -148,12 +148,12 @@ class tester(unittest.TestCase):
                     
                 if 'my_sub_dir_1_data0' in os.path.splitext(os.path.basename(t))[0]:
                     #the 100 and 200 series data (table data elements start with '100' and '200')
-                    self.assertEqual(first_row.strip(), '1,1,10011,20011')  #o=1, d=1, (100 series, 11), (200 series, 11)
-                    self.assertEqual(last_row.strip(),  '2,4,10024,20024')  #o=4, d=4, (100 series, 11), (200 series, 11)
+                    self.assertEqual(first_row.strip(), '1.0,1.0,10011.0,20011.0')  #o=1, d=1, (100 series, 11), (200 series, 11)
+                    self.assertEqual(last_row.strip(),  '2.0,4.0,10024.0,20024.0')  #o=4, d=4, (100 series, 11), (200 series, 11)
                 if 'my_sub_dir_2_data0' in os.path.splitext(os.path.basename(t))[0]:
                     #the 400 and 300 series data (table data elements  with '300' and '400')
-                    self.assertEqual(first_row.strip(), '1,1,30011,40011')  #o=1, d=1, (100 series, 11), (200 series, 11)
-                    self.assertEqual(last_row.strip() , '2,4,30024,40024')  #o=4, d=4, (100 series, 11), (200 series, 11) 
+                    self.assertEqual(first_row.strip(), '1.0,1.0,30011.0,40011.0')  #o=1, d=1, (100 series, 11), (200 series, 11)
+                    self.assertEqual(last_row.strip() , '2.0,4.0,30024.0,40024.0')  #o=4, d=4, (100 series, 11), (200 series, 11) 
                                 
         
     def test_flat_files(self)    :
@@ -208,12 +208,12 @@ class tester(unittest.TestCase):
                 if os.path.splitext(os.path.basename(t))[0] == 'my_sub_dir_1_data':
                     #self.assertTrue(expr)
                     #the 100 and 200 series data (table data elements start with '100' and '200')
-                    self.assertEqual(first_row.strip(), '1,1,10011,20011')  #o=1, d=1, (100 series, 11), (200 series, 11)
-                    self.assertEqual(last_row.strip(),  '4,4,10044,20044')  #o=4, d=4, (100 series, 11), (200 series, 11)
+                    self.assertEqual(first_row.strip(), '1.0,1.0,10011.0,20011.0')  #o=1, d=1, (100 series, 11), (200 series, 11)
+                    self.assertEqual(last_row.strip(),  '4.0,4.0,10044.0,20044.0')  #o=4, d=4, (100 series, 11), (200 series, 11)
                 if os.path.splitext(os.path.basename(t))[0] == 'my_sub_dir_2_data':  
                     #the 400 and 300 series data (table data elements  with '300' and '400')
-                    self.assertEqual(first_row.strip(), '1,1,30011,40011')  #o=1, d=1, (100 series, 11), (200 series, 11)
-                    self.assertEqual(last_row.strip() , '4,4,30044,40044')  #o=4, d=4, (100 series, 11), (200 series, 11) 
+                    self.assertEqual(first_row.strip(), '1.0,1.0,30011.0,40011.0')  #o=1, d=1, (100 series, 11), (200 series, 11)
+                    self.assertEqual(last_row.strip() , '4.0,4.0,30044.0,40044.0.0')  #o=4, d=4, (100 series, 11), (200 series, 11) 
                         
     def test_load_with_copy_partitioned(self):
         "ensures data tables are loading correctly by loading these flat files"
@@ -228,22 +228,22 @@ class tester(unittest.TestCase):
         curs.execute("SELECT * FROM {}".format(t_name))
         actual=curs.fetchall()
         
-        target=[(1, 1, 10011, 20011),
-                (1, 2, 10012, 20012),
-                (1, 3, 10013, 20013),
-                (1, 4, 10014, 20014),
-                (2, 1, 10021, 20021),
-                (2, 2, 10022, 20022),
-                (2, 3, 10023, 20023),
-                (2, 4, 10024, 20024),
-                (3, 1, 10031, 20031),
-                (3, 2, 10033, 20033),
-                (3, 3, 10033, 20033),
-                (3, 4, 10034, 20034),
-                (4, 1, 10041, 20041),
-                (4, 2, 10034, 20034),
-                (4, 3, 10043, 20043),
-                (4, 4, 10044, 20044)]
+        target=[(1.0, 1.0, 10011.0, 20011.0),
+                (1.0, 2.0, 10012.0, 20012.0),
+                (1.0, 3.0, 10013.0, 20013.0),
+                (1.0, 4.0, 10014.0, 20014.0),
+                (2.0, 1.0, 10021.0, 20021.0),
+                (2.0, 2.0, 10022.0, 20022.0),
+                (2.0, 3.0, 10023.0, 20023.0),
+                (2.0, 4.0, 10024.0, 20024.0),
+                (3.0, 1.0, 10031.0, 20031.0),
+                (3.0, 2.0, 10033.0, 20033.0),
+                (3.0, 3.0, 10033.0, 20033.0),
+                (3.0, 4.0, 10034.0, 20034.0),
+                (4.0, 1.0, 10041.0, 20041.0),
+                (4.0, 2.0, 10034.0, 20034.0),
+                (4.0, 3.0, 10043.0, 20043.0),
+                (4.0, 4.0, 10044.0, 20044.0)]
         
         for t, a in zip(target, actual):
             self.assertEqual(t, a, 'load_with_insert failed'  )
@@ -261,22 +261,22 @@ class tester(unittest.TestCase):
         curs.execute("SELECT * FROM {}".format(t_name))
         actual=curs.fetchall()
         
-        target=[(1, 1, 10011, 20011),
-                (1, 2, 10012, 20012),
-                (1, 3, 10013, 20013),
-                (1, 4, 10014, 20014),
-                (2, 1, 10021, 20021),
-                (2, 2, 10022, 20022),
-                (2, 3, 10023, 20023),
-                (2, 4, 10024, 20024),
-                (3, 1, 10031, 20031),
-                (3, 2, 10033, 20033),
-                (3, 3, 10033, 20033),
-                (3, 4, 10034, 20034),
-                (4, 1, 10041, 20041),
-                (4, 2, 10034, 20034),
-                (4, 3, 10043, 20043),
-                (4, 4, 10044, 20044)]
+        target=[(1.0, 1.0, 10011.0, 20011.0),
+                (1.0, 2.0, 10012.0, 20012.0),
+                (1.0, 3.0, 10013.0, 20013.0),
+                (1.0, 4.0, 10014.0, 20014.0),
+                (2.0, 1.0, 10021.0, 20021.0),
+                (2.0, 2.0, 10022.0, 20022.0),
+                (2.0, 3.0, 10023.0, 20023.0),
+                (2.0, 4.0, 10024.0, 20024.0),
+                (3.0, 1.0, 10031.0, 20031.0),
+                (3.0, 2.0, 10033.0, 20033.0),
+                (3.0, 3.0, 10033.0, 20033.0),
+                (3.0, 4.0, 10034.0, 20034.0),
+                (4.0, 1.0, 10041.0, 20041.0),
+                (4.0, 2.0, 10034.0, 20034.0),
+                (4.0, 3.0, 10043.0, 20043.0),
+                (4.0, 4.0, 10044.0, 20044.0)]
         
         for t, a in zip(target, actual):
             self.assertEqual(t, a, 'load_with_insert failed'  )
@@ -297,22 +297,22 @@ class tester(unittest.TestCase):
         curs.execute("SELECT * FROM {}".format(t_name))
         actual=curs.fetchall()
         
-        target=[(1, 1, 10011, 20011),
-                (1, 2, 10012, 20012),
-                (1, 3, 10013, 20013),
-                (1, 4, 10014, 20014),
-                (2, 1, 10021, 20021),
-                (2, 2, 10022, 20022),
-                (2, 3, 10023, 20023),
-                (2, 4, 10024, 20024),
-                (3, 1, 10031, 20031),
-                (3, 2, 10033, 20033),
-                (3, 3, 10033, 20033),
-                (3, 4, 10034, 20034),
-                (4, 1, 10041, 20041),
-                (4, 2, 10034, 20034),
-                (4, 3, 10043, 20043),
-                (4, 4, 10044, 20044)]
+        target=[(1.0, 1.0, 10011.0, 20011.0),
+                (1.0, 2.0, 10012.0, 20012.0),
+                (1.0, 3.0, 10013.0, 20013.0),
+                (1.0, 4.0, 10014.0, 20014.0),
+                (2.0, 1.0, 10021.0, 20021.0),
+                (2.0, 2.0, 10022.0, 20022.0),
+                (2.0, 3.0, 10023.0, 20023.0),
+                (2.0, 4.0, 10024.0, 20024.0),
+                (3.0, 1.0, 10031.0, 20031.0),
+                (3.0, 2.0, 10033.0, 20033.0),
+                (3.0, 3.0, 10033.0, 20033.0),
+                (3.0, 4.0, 10034.0, 20034.0),
+                (4.0, 1.0, 10041.0, 20041.0),
+                (4.0, 2.0, 10034.0, 20034.0),
+                (4.0, 3.0, 10043.0, 20043.0),
+                (4.0, 4.0, 10044.0, 20044.0)]
         
         for t, a in zip(target, actual):
             self.assertEqual(t, a, 'load_with_insert failed'  )            
