@@ -15,7 +15,7 @@ logger = logging.getLogger('trans_logger')
 
 LOG_FILE='db_loader.log'
 #set to 'WARN' to capure only data loading issues.  'DEBUG' is verbose.
-LOG_LEVEL='DEBUG'   
+LOG_LEVEL='INFO'   
 
 #**** login credentials need to be updated in database.py ***
 
@@ -38,7 +38,6 @@ logger.setLevel(LOG_LEVEL)
 #db=build_all.DB
 db='test'
 prefix='test_'  #used only for testing
-logger.setLevel(logging.DEBUG)
 
 #switches to limit queries for testing
 LIMIT_ON = 10                #arbitrary, small >=1
@@ -119,25 +118,11 @@ def make_rollup_tables():
 
     for scenario,  _  in   [scenarios[0]]:
         scenario=prefix + scenario+'_'
-
-
-       
-        
-        #Produces a bunch of SELECTS like this:
-
-        
-        
-   
-        
-        #Gather data for each income group.  Handle off peak and peak separately (different fares
-        #  and work-related purposes imply peak travel)
-     
-        
-            
         
         for income, _ in incomes:
             
             master_npa=None #placeholder for array to be transferred to the db
+            master_headers=[]
             
             '''This is pretty straighforward:  rail/bus costs = SUM((peak trips * peak fare) + (op trips * op fare))
             
@@ -175,25 +160,26 @@ def make_rollup_tables():
                 trips_table = '{}mode_choice_od'.format(scenario)
                 fares_table= '{}fares_fares'.format(prefix)
                 #peak
-                logger.info('peak transit costs')
+                pk_flag='pk'
+                logger.info('{} transit costs'.format(pk_flag))
                 for purpose, _ in purposes_pk:
                     for mode, _ in bus_modes+rail_modes:
                         #write a new SELECT statement for each purpose, mode pair
-                        select= '--adding peak rail/bus fare costs\n'
+                        select= '--adding peak rail/bus fare costs for {}. {}\n'.format(purpose, mode)
                         select += 'SELECT  DISTINCT\n '
                         #origin and dest
                         select += '\t{}.origin,\n'.format(trips_table)
                         select += '\t{}.dest,\n'.format(trips_table)                    
                         stmt=       '\t{}.{}_{}_{} * {}.{}_pk\n '
                         select+= stmt.format(trips_table, purpose, income, mode, fares_table, mode)
-                        print(select)
+                        #print(select)
                         select += 'FROM \n\t{} , {} \n '.format( trips_table, fares_table)
                         select +='WHERE  \n\t{}.origin={}.origin AND \n'.format( trips_table, fares_table)
                         select +='\t{}.dest={}.dest \n'.format(trips_table, fares_table)
                         select +='ORDER BY \n\t{}.origin, {}.dest\n\n'.format( trips_table,trips_table)                    
     
                         #grab the results. create a new np array or add this to the last (results) column                        
-                        logger.info('writing data for peak transit fares for {}: {} {}{}'.format(scenario, income, purpose, mode))
+                        logger.info('writing data for {} transit fares for {}: {} {}  {}'.format(pk_flag, scenario, income, purpose, mode))
                         logger.debug('executing {}\n'.format(select))
                         print(select)
                         curs.execute(select)
@@ -202,28 +188,29 @@ def make_rollup_tables():
                             npa=res
                         else: 
                             npa[:,-1]+=res[:,-1]
-                #peak
-                logger.info('off-peak transit costs')
+                #off peak
+                pk_flag='op'
+                logger.info('{} transit costs'.format(pk_flag))
                 for purpose, _ in purposes_op:
                     for mode, _ in bus_modes+rail_modes:
                         #write a new SELECT statement for each purpose, mode pair
-                        select= '--adding peak rail/bus fare costs\n'
+                        select= '--adding {} rail/bus fare costs for {}, {}\n'.format(pk_flag, purpose, mode)
                         select += 'SELECT  DISTINCT\n '
                         #origin and dest
                         select += '\t{}.origin,\n'.format(trips_table)
                         select += '\t{}.dest,\n'.format(trips_table)                    
                         stmt=       '\t{}.{}_{}_{} * {}.{}_op\n '
                         select+= stmt.format(trips_table, purpose, income, mode, fares_table, mode)
-                        print(select)
+                        #print(select)
                         select += 'FROM \n\t{} , {} \n '.format( trips_table, fares_table)
                         select +='WHERE  \n\t{}.origin={}.origin AND \n'.format( trips_table, fares_table)
                         select +='\t{}.dest={}.dest \n'.format(trips_table, fares_table)
                         select +='ORDER BY \n\t{}.origin, {}.dest'.format( trips_table,trips_table)                    
     
                         #grab the results. create a new np array or add this to the last (results) column                        
-                        logger.info('writing data for peak transit fares for {}: {} {}{}'.format(scenario, income, purpose, mode))
+                        logger.info('writing data for {} transit fares for {}: {} {}  {}'.format(pk_flag, scenario, income, purpose, mode))
                         logger.debug('executing {}\n'.format(select))
-                        print(select)
+                        #print(select)
                         curs.execute(select)
                         res=np.array(curs.fetchall())
                         if npa is  None:
@@ -235,7 +222,8 @@ def make_rollup_tables():
                 if master_npa is  None:
                     master_npa=npa
                 else: 
-                    master_npa[:,-1]+=npa[:,-1]          
+                    master_npa[:,-1]+=npa[:,-1]    
+                master_headers.append('transit_costs_{}'.format(income))
                     
                 logger.info('done rolling up transit costs for {} {}'.format(scenario, income))
                 break  #done with transit costs                
@@ -259,64 +247,109 @@ def make_rollup_tables():
         
             '''
             #note that we're already in an income loop
-            npa=None
             while True:
-               
+                
+                #do three passes - one each for distance, toll, and hwy time
+                
                 trips_table = '{}mode_choice_od'.format(scenario)
                 costs_table= '{}loaded_od_hwy_timecost'.format(scenario)
-                metric='time'
-                pk_flag='pk'
-                #peak
-                logger.info('peak driving distance costs')
-                for purpose, _ in purposes_pk:
-                    for mode, _ in drive_modes:
-                        for occupancy, _  in occupancy_hwy_loaded:
-                            if mode=='da':
-                                loaded_occupancy='sov'
-                            else:
-                                loaded_occupancy='hov'
-                                
-                            #write a new SELECT statement for each purpose, mode pair
-                            select= '--adding {} driving distance cost\n'.format(pk_flag)
-                            select += 'SELECT  DISTINCT\n '
-                            
-                            #origin and dest
-                            select += '\t{}.origin,\n'.format(trips_table)
-                            select += '\t{}.dest,\n'.format(trips_table)    
-                            
-                            #here, we need to average the am and pm values
-                                #{trips_table}.{purpose}_{income}_{mode} * {cost_table}_hwy_{metric}_{loaded_occupancy}_{tod} /2 +  \n}
-                            stmt1=       '\t{}.{}_{}_{} * {}.hwy_{}_{}_am  /2 +\n '
-                            stmt2=       '\t{}.{}_{}_{} * {}.hwy_{}_{}_pm  /2  \n'
-                            c=1
-                            select+= stmt1.format(trips_table, purpose, income, mode,  costs_table, metric, loaded_occupancy)
-                            select+= stmt2.format(trips_table, purpose, income, mode,  costs_table, metric, loaded_occupancy)
-                            print(select)
-                            select += 'FROM \n\t{} , {} \n '.format( trips_table, costs_table)
-                            select +='WHERE  \n\t{}.origin={}.origin AND \n'.format( trips_table, costs_table)
-                            select +='\t{}.dest={}.dest \n'.format(trips_table, costs_table)
-                            select +='ORDER BY \n\t{}.origin, {}.dest\n\n'.format( trips_table,trips_table)                    
-    
-                        #grab the results. create a new np array or add this to the last (results) column                        
-                        logger.info('writing data for peak transit fares for {}: {} {}{}'.format(scenario, income, purpose, mode))
-                        logger.debug('executing {}\n'.format(select))
-                        print(select)
-                        curs.execute(select)
-                        res=np.array(curs.fetchall())
-                        if npa is  None:
-                            npa=res
-                        else: 
-                            npa[:,-1]+=res[:,-1]
-       
+                               
                 
+                for metric in ['toll', 'time', 'distance']:
+                    npa=None
+                    #peak
+                    pk_flag='pk' 
+                    logger.info('{}'.format(metric))
+                    for purpose, _ in purposes_pk:
+                        for mode, _ in drive_modes:
+                            for occupancy, _  in occupancy_hwy_loaded:
+                                if mode=='da':
+                                    loaded_occupancy='sov'
+                                else:
+                                    loaded_occupancy='hov'
+                                    
+                                #write a new SELECT statement for each purpose, mode pair
+                                select= '\n--adding {} {} for {}, {}, {}\t\n'.format(pk_flag, metric, purpose, mode, occupancy)
+                                select += 'SELECT  DISTINCT\n '
+                                
+                                #origin and dest
+                                select += '\t{}.origin,\n'.format(trips_table)
+                                select += '\t{}.dest,\n'.format(trips_table)    
+                                
+                                #here, we need to average the am and pm values
+                                    #{trips_table}.{purpose}_{income}_{mode} * {cost_table}_hwy_{metric}_{loaded_occupancy}_{tod} /2 +  \n}
+                                stmt1=       '\t{}.{}_{}_{} * {}.hwy_{}_{}_am  /2 +\n '
+                                stmt2=       '\t{}.{}_{}_{} * {}.hwy_{}_{}_pm  /2  \n'
+                                c=1
+                                select+= stmt1.format(trips_table, purpose, income, mode,  costs_table, metric, loaded_occupancy)
+                                select+= stmt2.format(trips_table, purpose, income, mode,  costs_table, metric, loaded_occupancy)
+                                #print(select)
+                                select += 'FROM \n\t{} , {} \n '.format( trips_table, costs_table)
+                                select +='WHERE  \n\t{}.origin={}.origin AND \n'.format( trips_table, costs_table)
+                                select +='\t{}.dest={}.dest \n'.format(trips_table, costs_table)
+                                select +='ORDER BY \n\t{}.origin, {}.dest\n\n'.format( trips_table,trips_table)                    
+        
+                                #grab the results. create a new np array or add this to the last (results) column                        
+                                logger.info('writing data for {} {} for {}: {} {}{} {}'.format(pk_flag, metric, scenario, income, purpose, mode, loaded_occupancy))
+                                logger.debug('executing {}\n'.format(select))
+                                #print(select)
+                                curs.execute(select)
+                                res=np.array(curs.fetchall())
+
+                    #off peak
+                    pk_flag='op' 
+                    logger.info('{}'.format(metric))
+                    for purpose, _ in purposes_pk:
+                        for mode, _ in drive_modes:
+                            for occupancy, _  in occupancy_hwy_loaded:
+                                if mode=='da':
+                                    loaded_occupancy='sov'
+                                else:
+                                    loaded_occupancy='hov'
+                                    
+                                #write a new SELECT statement for each purpose, mode pair
+                                select= '\n--adding {} {} for {}, {}, {}\t\n'.format(pk_flag, metric, purpose, mode, occupancy)
+                                select += 'SELECT  DISTINCT\n '
+                                
+                                #origin and dest
+                                select += '\t{}.origin,\n'.format(trips_table)
+                                select += '\t{}.dest,\n'.format(trips_table)    
+                                
+                                #here, we need to average the nt and md values
+                                    #{trips_table}.{purpose}_{income}_{mode} * {cost_table}_hwy_{metric}_{loaded_occupancy}_{tod} /2 +  \n}
+                                stmt1=       '\t{}.{}_{}_{} * {}.hwy_{}_{}_nt  /2 +\n '
+                                stmt2=       '\t{}.{}_{}_{} * {}.hwy_{}_{}_md  /2  \n'
+                                c=1
+                                select+= stmt1.format(trips_table, purpose, income, mode,  costs_table, metric, loaded_occupancy)
+                                select+= stmt2.format(trips_table, purpose, income, mode,  costs_table, metric, loaded_occupancy)
+                                #print(select)
+                                select += 'FROM \n\t{} , {} \n '.format( trips_table, costs_table)
+                                select +='WHERE  \n\t{}.origin={}.origin AND \n'.format( trips_table, costs_table)
+                                select +='\t{}.dest={}.dest \n'.format(trips_table, costs_table)
+                                select +='ORDER BY \n\t{}.origin, {}.dest\n\n'.format( trips_table,trips_table)                    
+        
+                                #grab the results. create a new np array or add this to the last (results) column                        
+                                logger.info('writing data for {} {} for {}: {} {}{} {}'.format(pk_flag, metric, scenario, income, purpose, mode, loaded_occupancy))
+                                logger.debug('executing {}\n'.format(select))
+                                #print(select)
+                                curs.execute(select)
+                                res=np.array(curs.fetchall())
+                                #this   adds the combined peak + off-peak totals
+                                if npa is  None:
+                                    npa=res
+                                else: 
+                                    npa[:,-1]+=res[:,-1]
+                                True
+                    break
                     #Add this to master npa for transfer to the db.
                     if master_npa is  None:
                         master_npa=npa
                     else: 
-                        master_npa[:,-1]+=npa[:,-1]          
+                        master_npa[:,-1]+=npa[:,-1]   
+                    master_headers.append('{} {} {}'.format(scenario, income, metric))
                         
-                    logger.info('done rolling up transit costs for {} {}').format(scenario, income)
-                    break  #done with transit costs    
+                logger.info('done rolling up highway costs for {} {}'.format(scenario, income))
+                break  #done with highway costs    
 
 
 
