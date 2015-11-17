@@ -18,13 +18,13 @@ import describe_db
 #  build_flat_files.build_flat_files() and build_tables.build_tables() separately.
 
 #Data directories and output directories.  
-dirs = [{'data': '/home/pat/mary/NoRed-YesHwy',  'scratch': '/home/pat/mary/flat_NoRed-YesHwy'},
-        {'data': '/home/pat/mary/NoRed-NoHwy',   'scratch': '/home/pat/mary/flat_NoRed-NoHwy'},
-        {'data': '/home/pat/mary/YesRed-YesHwy', 'scratch': '/home/pat/mary/flat_YesRed-YesHwy'},
-        {'data': '/home/pat/mary/YesRed-NoHwy',  'scratch': '/home/pat/mary/flat_YesRed-NoHwy'},
-        {'data': '/home/pat/mary/Fares',  'scratch': '/home/pat/mary/flat_Fares'},
-        # {'data': '/home/pat/mary/Test-NoRed-YesHwy',  'scratch': '/home/pat/mary/junkdir'},
-        #{'data': '/home/pat/mary/yesRedNoHwyTest', 'scratch': '/home/pat/mary/flat_YesRed-YesHwyx'}
+dirs = [{'data': '/home/pat/workspace/mary/NoRed-YesHwy',  'scratch': '/home/pat/workspace/flat/flat_NoRed-YesHwy'},
+        {'data': '/home/pat/workspace/mary/NoRed-NoHwy',   'scratch': '/home/pat/workspace/flat/flat_NoRed-NoHwy'},
+        {'data': '/home/pat/workspace/mary/YesRed-YesHwy', 'scratch': '/home/pat/workspace/flat/flat_YesRed-YesHwy'},
+        {'data': '/home/pat/workspace/mary/YesRed-NoHwy',  'scratch': '/home/pat/workspace/flat/flat_YesRed-NoHwy'},
+        #{'data': '/home/pat/workspace/mary/Fares',  'scratch': '/home/pat/flat'},
+        # {'data': '/home/pat/workspace/mary/Test-NoRed-YesHwy',  'scratch': '/home/workspace/pat/mary/junkdir'},
+        #{'data': '/home/pat/workspace/mary/yesRedNoHwyTest', 'scratch': '/home/pat/workspace/mary/flat_YesRed-YesHwyx'}
         ]
 
 #database name

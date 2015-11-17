@@ -40,7 +40,7 @@ def build_flat_files(in_dir, out_dir, test_max_rows=None):
     if not os.path.exists(out_dir):
         os.mkdir(out_dir)  
 
-    for root, dirs, files in os.walk(in_dir):
+    for root, dirs, files in os.walk(in_dir, followlinks=True):
         #each dir will contain files for a single array
 
         for d in dirs:
