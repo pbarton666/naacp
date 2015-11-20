@@ -6,7 +6,9 @@ dir_map = {'HWY_OD_TimeCost':                    'hwy_od',
            'ModeChoice_OD_byPurposeIncomeMode':  'mode_choice_od',
            'PersonTrip_OD_byPurposeIncome':      'person_trip_od',
            'TOD_OD_byPurposeIncomeTODOccupancy': 'tod_od',
-           'Transit_OD_TimeCost':                'transit_od'
+           'Transit_OD_TimeCost':                'transit_od',
+           #newy addded
+           'TOD_OD_byPurposeIncomeTODOccupancy': 'trips_purpose_income_tod_occ'
            }
 
 FN_DELIMITER = '_'  #info about matrices is stored in the file names themselves.
