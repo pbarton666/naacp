@@ -2,6 +2,8 @@
 import psycopg2
 import csv
 import os
+import sys
+import traceback
 from pprint import pprint as pp
 import numpy as np
 #
@@ -13,7 +15,7 @@ if True:  # constants, globals used for source code folding only
     
     #used to initialize np array
     NP_ROWS=1179  * 1179   #origin, dest pairs
-    NP_COLS=20                     #aggregate columns required for each income group
+    NP_COLS=30                     #aggregate columns required for each income group
     
     #set to 'WARN' to capure only data loading issues.  'DEBUG' is verbose.
     LOG_LEVEL='INFO'   
@@ -62,7 +64,8 @@ if True:  #column and table name components (stiched together to id columns)
    
     occupancy_hwy_loaded=['hov', 'sov']
     occupancy_hwy_tod=['sov', 'hov2', 'hov3']
-    tod_hwy_loaded=['am', 'md','pm', 'nt']
+
+    tod_hwy_loaded = ['am', 'pm', 'md', 'nt']
     tod_transit_times=['pk', 'op']
     tod_fares=tod_transit_times
     metrics=['toll', 'time', 'distance']    
@@ -73,8 +76,8 @@ if True:  #column and table name components (stiched together to id columns)
         purpose_peak_flag[p] = 'pk'
     for p in purposes_op:
         purpose_peak_flag[p] = 'op'
+    
         
-    purpose_rount_trip_flag=purpose_peak_flag
     
 def aggregate_bus_rail_fares(scenario=None,   
                                                     income=None,  
@@ -211,24 +214,6 @@ def aggregate_bus_rail_fares(scenario=None,
                      
                         logger.info('writing data for {} {} for {}: {} {}  {}'.format(pk_flag, topic, scenario, income, purpose, mode))
                         logger.debug('executing {}\n'.format(select))                    
-                    
-                    
-                    #print(select)
-                    #curs.execute(select)
-                    #res=np.array(curs.fetchall())     
-                    
-                    
-                    ##add the results to the last column of the aggregation array
-                    ##grab the OD columns for the first result
-                    #if fresh_npa_array:    
-                        #npa=res
-                        #fresh_npa_array=False
-                    ##add only the last column of subsequent ones
-                    #else:
-                        #npa[:,-1]+=res[:,-1]
-                 
-                    #logger.info('writing data for {} {} for {}: {} {}  {}'.format(pk_flag, topic, scenario, income, purpose, mode))
-                    #logger.debug('executing {}\n'.format(select))
     
     return npa
 
@@ -247,7 +232,7 @@ def aggregate_transit_metrics(scenario=None,
     
     """Keeps topics (initialwaittime, bustime, etc.) separate for now.  For final analysis it may makes sense to consolodate 
          waiting:   initialwaittime, transfertime
-         bust time: wexpbus, dexpbus, wbus, dbus
+         bus time: wexpbus, dexpbus, wbus, dbus
          train time: wrail, wcrail, drail, dcrail
          
          ... but it's easier to combine later than have to separate."""
@@ -373,10 +358,126 @@ def aggregate_transit_metrics(scenario=None,
                      
                         logger.info('writing data for {} {} for {}: {} {}  {}'.format(pk_flag, topic, scenario, income, purpose, mode))
                         logger.debug('executing {}\n'.format(select))
+                        a=1
     return npa
 
-def aggregate_hwy_costs(scenario=None,income=None)    :
-    pass
+def aggregate_hwy_costs(scenario=None,   
+                                                    income=None,  
+                                                    purposes=purposes,      
+                                                    purposes_round_trip=purposes_round_trip,
+                                                    bus_modes=bus_modes, 
+                                                    rail_modes=rail_modes,
+                                                    np_rows=NP_ROWS,
+                                                    topic=None,
+                                                    occupancy=None):
+    
+    """Aggregate costs for highway-only travel.  Roll up topics over purpose, tod.  
+        Keeps occupancies (sov, hov2, hov3) and costs (time, distance, toll) separate"""
+        
+    """Typical SELECTS
+    
+                       
+     """
+    
+    """   
+                    #     hwy_toll_hov_am
+                #     hbo_inc1_md_hov3"""     
+    #general info for this metric
+    trips_table = '{}trips_purpose_income_tod_occ'.format(scenario)  
+    metrics_table= '{}loaded_hwy_od_timecost'.format(scenario)
+    logger.info('Beginning aggregation of {} data'.format(topic))
+    
+    #initialize null np array
+    npa=np.zeros(((np_rows-1)**2, 3))  #orig, dest, value
+    fresh_npa_array=True
+    
+    for purpose in purposes:
+        #peak or off peak as f(purpose) 
+        #pk_flag=purpose_peak_flag[purpose]
+        
+        #round trip of one-way (round trip for home based journeys)?
+        trip_legs=['outbound']
+        if purpose in purposes_round_trip:
+            trip_legs.append('return')
+          
+        #calculate each leg of the trip separately  
+        for trip_leg in trip_legs:      
+            
+            #loop thru appropriate modes and compose SELECT
+            for mode in drive_modes:   
+                for tod in tod_hwy_loaded:
+                    #          --adding {topic} for {purpose} {mode} {occupancy}- {trip_leg} leg\n' 
+                    select= '--adding {} for {} {} {} - {} leg\n'.format(topic, purpose, mode, occupancy, trip_leg)                         
+                    #          SELECT DISTINCT
+                    select += 'SELECT  DISTINCT\n '
+                    #                 {metrics_table}.origin
+                    select += '\t{}.origin,\n'.format(metrics_table)
+                    #                 {metrics_table}.dest            
+                    select += '\t{}.dest,\n'.format(metrics_table)   
+
+                    if occupancy == 'hov2' or occupancy=='hov3':
+                        occ_for_loaded = 'hov'
+                    else:
+                        occ_for_loaded='sov'
+                    
+                    #               '{trips_table}.{purpose}_{income}_{tod}_{occ} * {metrics_table}.hwy_{topic}_{occupancy}_{tod} '
+                    stmt=       '\t{}.{}_{}_{}_{} * {}.hwy_{}_{}_{}\n '
+                    
+                    select+= stmt.format(trips_table, purpose, income, tod, occupancy, \
+                                                       metrics_table, topic, occ_for_loaded, tod)
+                    #                FROM {trips_table} , {metrics_table}
+                    select += 'FROM \n\t {} , {} \n '.format( trips_table, metrics_table)
+                    
+                    if trip_leg== 'outbound':   
+                        #use OD pairs from trip table same as metric table's
+    
+                        #               WHERE  {trips_table}.origin={metrics_table}.origin AND 
+                        select +='WHERE  \n\t{}.origin={}.origin AND \n'.format( trips_table, metrics_table)
+                        #                   {metrics_table}.dest={metrics_table}.dest)
+                        select +='\t{}.dest={}.dest \n'.format(metrics_table, trips_table)
+                        
+                    else:  
+                        #use transposed OD pairs from trip table (origin = metrics.dest, dest=metrics.origin)
+                        
+                        #               WHERE  {trips_table}.dest={metrics_table}.origin AND 
+                        select +='WHERE  \n\t{}.dest={}.origin AND \n'.format( trips_table, metrics_table)
+                        #                   {metrics_table}.origin={metrics_table}.dest)
+                        select +='\t{}.origin={}.dest \n'.format(trips_table, metrics_table)                        
+                        
+                    #             ORDER BY {metrics_table}.origin, {metrics_table}.dest
+                    select +='ORDER BY \n\t{}.origin, {}.dest\n\n'.format( metrics_table, metrics_table)   
+                    logger.debug('executing:\n' +select)
+                    
+                    #some queries can't succeed because there are not tables to support them e.g., autodistance for wexpbus mode
+                    good_table=True
+                    try:                        
+                        print(select)
+                        curs.execute('END')
+                        curs.execute(select)
+                        conn.commit()
+                    except :
+                        exc_type, exc_value, exc_traceback = sys.exc_info()
+                        msg = '--Nevermind.  NOT adding {} for {}. {} - {} leg - no table to support it\n'
+                        logger.debug(msg.format(topic, purpose, mode, trip_leg))
+                        good_table=False
+                        break
+                    
+                    if good_table:
+                        res=np.array(curs.fetchall())     
+
+                        #add the results to the last column of the aggregation array
+                        #grab the OD columns for the first result
+                        if fresh_npa_array:    
+                            npa=res
+                            fresh_npa_array=False
+                        #add only the last column of subsequent ones
+                        else:
+                            npa[:,-1]+=res[:,-1]
+                     
+                        logger.info('writing data for {} {} for {}: {} {}  {}'.format(occupancy, topic, scenario, income, purpose, mode))
+                        logger.debug('executing {}\n'.format(select))
+    return npa
+    
     
     
 def add_to_master(npa=None, master_npa=None, master_col=None, include_od_cols=False):
@@ -406,27 +507,26 @@ def make_rollup_tables():
             master_col =0 #numpy column index
             master_headers=['origin', 'dest']
             
-            ##************** bus/rail fares **************#
-            ##add orig, dest columns to master_npa, since this is the first one loaded
-            #col_name = 'bus_rail_fares'                 #column name in master_npa array
-            #routine=aggregate_bus_rail_fares      #the method run to process this
+            #************** bus/rail fares **************#
+            #add orig, dest columns to master_npa, since this is the first one loaded
+            col_name = 'bus_rail_fares'                 #column name in master_npa array
+            routine=aggregate_bus_rail_fares      #the method run to process this
             
-             ##add orig, dest columns to master_npa, since this is the first one loaded
-            #master_npa = add_to_master( master_npa=master_npa,
-                                                             #npa=routine(scenario=scenario, income=income), 
-                                                             #master_col=master_col, 
-                                                             #include_od_cols=True)
-            #master_headers.append(col_name)
-            #master_col +=3  #accounts for addition of od cols
-            #logger.info('done rolling up {} {} {}'.format(scenario, income, col_name))
+             #add orig, dest columns to master_npa, since this is the first one loaded
+            master_npa = add_to_master( master_npa=master_npa,
+                                                             npa=routine(scenario=scenario, income=income), 
+                                                             master_col=master_col, 
+                                                             include_od_cols=True)
+            master_headers.append(col_name)
+            master_col +=3  #accounts for addition of od cols
+            logger.info('done rolling up {} {} {}'.format(scenario, income, col_name))
         
             
             #**************bus/ time time, distance**************#
             #create an aggregate across all puropses, times, 
+            routine=aggregate_transit_metrics
             for metric in transit_metrics:   #walktime, etc.
-                col_name='time'
-                routine=aggregate_transit_metrics
-                #npa=routine(scenario=scenario, income=income, topic = metric)
+                col_name=metric                
                 master_npa = add_to_master( master_npa=master_npa,
                                                                  npa=routine(scenario=scenario, income=income, topic = metric), 
                                                                  master_col=master_col, 
@@ -436,10 +536,56 @@ def make_rollup_tables():
                 master_col +=1
                 logger.info('done rolling up {} {} {}'.format(scenario, income, col_name))                
             
-
+            #**************highway distance/time**************#
+            #create an aggregate across all puropses, times, 
+            routine=aggregate_hwy_costs
+            for metric in metrics:   #toll, distance, time
+                for occupancy in occupancy_hwy_tod:  #sov, hov2, hov3
+                    col_name=metric+ '_' +occupancy
+                    master_npa = add_to_master( master_npa=master_npa,
+                                                                     npa=routine(scenario=scenario, income=income, topic = metric, occupancy=occupancy), 
+                                                                     master_col=master_col, 
+                                                                     include_od_cols=False
+                                                                     )  
+                    master_headers.append(col_name)
+                    master_col +=1
+                    logger.info('done rolling up {} {} {}'.format(scenario, income, col_name)) 
+             
+            db_table_name='aggregated_{}_{}'   .format(scenario, income)
+            create_db_table(tname=db_table_name, scenario=scenario, income=income, 
+                                      data=master_npa, master_headers=master_headers)
+            logger.debug('Success in creating aggregate db table for {} {}'.format(scenario, income))
+            a=1
             
-            ##TODO: make db table for master
-
+def create_db_table(tname=None, scenario=None, income=None, master_headers=None, data=None):
+    "creates a new table for this income group and scenario"
+    
+    curs.execute('END')
+    sql = 'DROP TABLE IF EXISTS {}'.format(tname)
+    curs.execute(sql)
+    logger.debug('dropping table {}'.format(tname)) 
+    sql='CREATE TABLE IF NOT EXISTS {} ('.format(tname)
+    for col in master_headers:  
+        sql+=' {} float,'.format(str(col))        
+    sql = sql[:-1] + ');' #
+    print(sql)
+    curs.execute(sql)
+    conn.commit()      
+    
+    ##TODO:  should be a clever way simply to load the array (alt: dump file and load; also could just do INSERTs)
+    
+    #for line in data:
+        #sql="INSERT INTO {} (".format(tname) 
+        #for col in master_headers:  
+            #sql+=' {}, '.format(col)   
+        #sql=sql[:-2] + ") VALUES ("
+        #for value in line.split(','):
+            #sql+=' {},'.format(value)            
+        #sql=sql[:-2] + ") "
+        #print(sql)
+        #curs.execute(sql)      
+    
+    pass
 
 if __name__=='__main__':
     make_rollup_tables()
