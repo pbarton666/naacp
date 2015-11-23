@@ -185,7 +185,7 @@ ORDER BY
                 if this_np_col<0:
                     npa=np.zeros(((np_rows-1)**2, cols_added+2))  #scratch array                
                 
-                #this selects from the base and trial case tables
+                #this selects trips and costs from the base and trial case tables
                 for metrics_table, trips_table, name in zip([base_metrics_table, test_metrics_table],
                                                                                                     [base_trips_table, test_trips_table],
                                                                                                     ['base', scenario]):
@@ -196,14 +196,14 @@ ORDER BY
                     #          --finding {topic} for {purpose}. {mode} - {trip_leg} leg\n' 
                     select= '--finding {} for {}. {} - {} leg - scenario: {}\n'.format(topic, purpose, mode, trip_leg, name)
                     select += 'SELECT  DISTINCT\n '
-                    #                 {base_metrics_table}.origin
+                    #                 {metrics_table}.origin
                     select += '\t{}.origin,\n'.format(metrics_table)
-                    #                 {base_metrics_table}.dest            
+                    #                 {metrics_table}.dest            
                     select += '\t{}.dest,\n'.format(metrics_table)   
-                    #               '{base_trips_table}.{purpose}_{income}_{mode} * {metrics_table}.{mode}_{pk_flag} '
+                    #               '{trips_table}.{purpose}_{income}_{mode} * {metrics_table}.{mode}_{pk_flag} '
                     stmt=       '\t{}.{}_{}_{} * {}.{}_{},\n '
                     select+= stmt.format(trips_table, purpose, income, mode, metrics_table, mode, pk_flag)
-                    #               '{base_trips_table}.{purpose}_{income}_{mode} '
+                    #               '{trips_table}.{purpose}_{income}_{mode} '
                     stmt=       '\t{}.{}_{}_{}\n '                        
                     select+= stmt.format(trips_table, purpose, income, mode)
                     
@@ -276,7 +276,8 @@ ORDER BY
     return export_array
 
 
-def aggregate_transit_metrics(scenario=None,   
+def rollup_transit_metrics(scenario=None,   
+                                                    base_scenario=None,
                                                     income=None,  
                                                     purposes=purposes,      
                                                     purposes_round_trip=purposes_round_trip,
@@ -296,38 +297,6 @@ def aggregate_transit_metrics(scenario=None,
          ... but it's easier to combine later than have to separate."""
     
     """Typical SELECTS
-    
-    --adding xferwaittime for hbw. wbus - outbound leg
-    SELECT  DISTINCT
-        test_yesred_nohwy_transit_od_timecost.origin,
-        test_yesred_nohwy_transit_od_timecost.dest,
-        test_yesred_nohwy_mode_choice_od.hbw_inc1_wbus * test_yesred_nohwy_transit_od_timecost.pk_wbus_xferwaittime
-     FROM 
-         test_yesred_nohwy_mode_choice_od , test_yesred_nohwy_transit_od_timecost 
-     WHERE  
-        test_yesred_nohwy_mode_choice_od.origin=test_yesred_nohwy_transit_od_timecost.origin AND 
-        test_yesred_nohwy_transit_od_timecost.dest=test_yesred_nohwy_mode_choice_od.dest 
-    ORDER BY 
-        test_yesred_nohwy_transit_od_timecost.origin, test_yesred_nohwy_transit_od_timecost.dest
-        
-    --adding xferwaittime for hbw. wbus - return leg
-    SELECT  DISTINCT
-        test_yesred_nohwy_transit_od_timecost.origin,
-        test_yesred_nohwy_transit_od_timecost.dest,
-        test_yesred_nohwy_mode_choice_od.hbw_inc1_wbus * test_yesred_nohwy_transit_od_timecost.pk_wbus_xferwaittime
-     
-    --adding xferwaittime for hbw. wbus - return leg
-    SELECT  DISTINCT
-        test_yesred_nohwy_transit_od_timecost.origin,
-        test_yesred_nohwy_transit_od_timecost.dest,
-        test_yesred_nohwy_mode_choice_od.hbw_inc1_wbus * test_yesred_nohwy_transit_od_timecost.pk_wbus_xferwaittime
-     FROM 
-         test_yesred_nohwy_mode_choice_od , test_yesred_nohwy_transit_od_timecost 
-     WHERE  
-        test_yesred_nohwy_mode_choice_od.dest=test_yesred_nohwy_transit_od_timecost.origin AND 
-        test_yesred_nohwy_mode_choice_od.origin=test_yesred_nohwy_transit_od_timecost.dest 
-    ORDER BY 
-        test_yesred_nohwy_transit_od_timecost.origin, test_yesred_nohwy_transit_od_timecost.dest
                                                     
      """
      
@@ -347,50 +316,71 @@ def aggregate_transit_metrics(scenario=None,
         #round trip of one-way (round trip for home based journeys)?
         trip_legs=['outbound']
         if purpose in purposes_round_trip:
-            trip_legs.append('return')
-          
-        #calculate each leg of the trip separately  
-        for trip_leg in trip_legs:      
+            trip_legs.append('return') 
             
-            #loop thru appropriate modes (no fares w/ auto) and compose SELECT
-            for mode in bus_modes+rail_modes:                    
-                    #          --adding {topic} for {purpose}. {mode} - {trip_leg} leg\n' 
-                    select= '--adding {} for {}. {} - {} leg\n'.format(topic, purpose, mode, trip_leg)                         
-
-                    #          SELECT DISTINCT
-                    select += 'SELECT  DISTINCT\n '
-                    #                 {metrics_table}.origin
-                    select += '\t{}.origin,\n'.format(metrics_table)
-                    #                 {metrics_table}.dest            
-                    select += '\t{}.dest,\n'.format(metrics_table)   
+            #loop thru appropriate modes and compose SELECT
+            for mode in bus_modes+rail_modes:      
+                
+                #calculate benefits for each leg of the trip separately; combine the benefits from a round-trip at the end 
+                #     of the 'trip_leg' loop.
+            
+                need_npa_combined = True  #holds outbound+return benefits rollup
+            
+                #flag for npa creation
+                this_np_col =-1                  
+                
+                
+                #calculate each leg of the trip separately  
+                for trip_leg in trip_legs:
                     
-                    #               '{trips_table}.{purpose}_{income}_{mode} * {metrics_table}.{pk_flag}_{mode}_{topic} '
-                    stmt=       '\t{}.{}_{}_{} * {}.{}_{}_{}\n '
-                    
-                    select+= stmt.format(trips_table, purpose, income, mode, metrics_table, pk_flag, mode, topic)
-                    #print(select)
-                    #                FROM {trips_table} , {metrics_table}
-                    select += 'FROM \n\t {} , {} \n '.format( trips_table, metrics_table)
-                    
-                    if trip_leg== 'outbound':   
-                        #use OD pairs from trip table same as metric table's
+                    if this_np_col<0:
+                        npa=np.zeros(((np_rows-1)**2, cols_added+2))  #scratch array       
+                        
+                    #this selects from the base and trial case tables
+                    for metrics_table, trips_table, name in zip([base_metrics_table, test_metrics_table],
+                                                                                                        [base_trips_table, test_trips_table],
+                                                                                                        ['base', scenario]):
+                
+                        logger.info('running {} case for {} {}  {}'.format(name,  purpose, mode, trip_leg))        
+                        
+                        #create SELECT statements
     
-                        #               WHERE  {trips_table}.origin={metrics_table}.origin AND 
-                        select +='WHERE  \n\t{}.origin={}.origin AND \n'.format( trips_table, metrics_table)
-                        #                   {metrics_table}.dest={metrics_table}.dest)
-                        select +='\t{}.dest={}.dest \n'.format(metrics_table, trips_table)
+                        #          --adding {topic} for {purpose}. {mode} - {trip_leg} leg\n' 
+                        select= '--adding {} for {}. {} - {} leg\n'.format(topic, purpose, mode, trip_leg)                         
+
+                        select += 'SELECT  DISTINCT\n '
+                        #                 {base_metrics_table}.origin
+                        select += '\t{}.origin,\n'.format(metrics_table)
+                        #                 {metrics_table}.dest            
+                        select += '\t{}.dest,\n'.format(metrics_table)   
                         
-                    else:  
-                        #use transposed OD pairs from trip table (origin = metrics.dest, dest=metrics.origin)
+                        #               '{trips_table}.{purpose}_{income}_{mode} * {metrics_table}.{pk_flag}_{mode}_{topic} '
+                        stmt=       '\t{}.{}_{}_{} * {}.{}_{}_{}\n '
                         
-                        #               WHERE  {trips_table}.dest={metrics_table}.origin AND 
-                        select +='WHERE  \n\t{}.dest={}.origin AND \n'.format( trips_table, metrics_table)
-                        #                   {metrics_table}.origin={metrics_table}.dest)
-                        select +='\t{}.origin={}.dest \n'.format(trips_table, metrics_table)                        
+                        select+= stmt.format(trips_table, purpose, income, mode, metrics_table, pk_flag, mode, topic)
+                        #print(select)
+                        #                FROM {trips_table} , {metrics_table}
+                        select += 'FROM \n\t {} , {} \n '.format( trips_table, metrics_table)
                         
-                    #             ORDER BY {metrics_table}.origin, {metrics_table}.dest
-                    select +='ORDER BY \n\t{}.origin, {}.dest\n\n'.format( metrics_table, metrics_table)   
-                    logger.debug('executing:\n' +select)
+                        if trip_leg== 'outbound':   
+                            #use OD pairs from trip table same as metric table's
+        
+                            #               WHERE  {trips_table}.origin={metrics_table}.origin AND 
+                            select +='WHERE  \n\t{}.origin={}.origin AND \n'.format( trips_table, metrics_table)
+                            #                   {metrics_table}.dest={metrics_table}.dest)
+                            select +='\t{}.dest={}.dest \n'.format(metrics_table, trips_table)
+                            
+                        else:  
+                            #use transposed OD pairs from trip table (origin = metrics.dest, dest=metrics.origin)
+                            
+                            #               WHERE  {trips_table}.dest={metrics_table}.origin AND 
+                            select +='WHERE  \n\t{}.dest={}.origin AND \n'.format( trips_table, metrics_table)
+                            #                   {metrics_table}.origin={metrics_table}.dest)
+                            select +='\t{}.origin={}.dest \n'.format(trips_table, metrics_table)                        
+                            
+                        #             ORDER BY {metrics_table}.origin, {metrics_table}.dest
+                        select +='ORDER BY \n\t{}.origin, {}.dest\n\n'.format( metrics_table, metrics_table)   
+                        logger.debug('executing:\n' +select)
                     
                     #some queries can't succeed because there are not tables to support them e.g., autodistance for wexpbus mode
                     good_table=True
@@ -572,19 +562,48 @@ def make_rollup_tables():
             master_col =0 #numpy column index
             master_headers=['origin', 'dest']
             
-            #************** bus/rail fares **************#
-            #add orig, dest columns to master_npa, since this is the first one loaded
-            col_name = 'bus_rail_fares_{}'.format(income)                 #column name in master_npa array
-            routine=rollup_bus_rail_fares      #the method run to process this
-
-             #add orig, dest columns to master_npa, since this is the first one loaded
-            master_npa = add_to_master( master_npa=master_npa,
-                                                             npa=routine(scenario=scenario, base_scenario=base, income=income), 
-                                                             master_col=master_col, 
-                                                             include_od_cols=True)
-            master_headers.append(col_name)
-            master_col +=3  #accounts for addition of od cols
-            logger.info('done rolling up {} {} {}'.format(scenario, income, col_name))
+            if True:  #include for source code folding only
+                
+                #************** bus/rail fares **************#
+                #add orig, dest columns to master_npa, if  this is the first one loaded
+                include_od_columns=True
+                col_name = 'bus_rail_fares_{}'.format(income)                 #column name in master_npa array
+                routine=rollup_bus_rail_fares      #the method run to process this
+    
+                 #add orig, dest columns to master_npa, since this is the first one loaded
+                master_npa = add_to_master( master_npa=master_npa,
+                                                                 npa=routine(scenario=scenario, base_scenario=base, income=income), 
+                                                                 master_col=master_col, 
+                                                                 include_od_cols=include_od_columns)
+                master_headers.append(col_name)
+                if include_od_columns:
+                    master_col +=3  #accounts for addition of od cols
+                else:
+                    master_col += 1
+                logger.info('done rolling up {} {} {}'.format(scenario, income, col_name))
+            
+            #**************bus/ time time, distance**************#
+            #create an aggregate across all puropses, times, 
+            ##TODO:  change following for production
+            include_od_columns=True 
+            routine=rollup_transit_metrics
+            for metric in transit_metrics:   #walktime, etc.
+                col_name=metric                
+                master_npa = add_to_master( master_npa=master_npa,
+                                                                 npa=routine(scenario=scenario, base_scenario=base_scenario,  income=income, topic = metric), 
+                                                                 master_col=master_col, 
+                                                                 include_od_cols=False
+                                                                 )  
+                master_headers.append(col_name)
+                if include_od_columns:
+                    master_col +=3  #accounts for addition of od cols
+                else:
+                    master_col += 1
+                logger.info('done rolling up {} {} {}'.format(scenario, income, col_name))                        
+            
+            
+            
+            
         
             
             ##**************bus/ time time, distance**************#
